@@ -10,11 +10,11 @@
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
                 @if (Auth::check())
-                    <li class="nav-item"><a href="#" class="nav-link">投稿</a></li>
+                    <li class="nav-item">{!! link_to_route('fashions.create','投稿',[],['class' => 'nav-link']) !!}</li>
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }}</a>
                         <ul class="dropdown-menu dropdown-menu-right">
-                            <li class="dropdown-item"><a href="#">トップページ</a></li>
+                            <li class="dropdown-item">{!! link_to_route('fashions.index','トップページ') !!}</li>
                             <li class="dropdown-item"><a href="#">ランキング </a></li>
                             <li class="dropdown-item"><a href="#">タイムライン</a></li>
                             <li class="dropdown-item"><a href="#">マイページ</a></li>
