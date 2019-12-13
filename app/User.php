@@ -94,4 +94,11 @@ class User extends Authenticatable
         }
     }
     
+    public function timeline(){
+        
+        $following_user_ids = $this->followings()->pluck('users.id')->toArray();
+        $following_user_ids[] = $this->id;
+        return Fashion::whereIn('user_id',$following_user_ids);
+    }
+    
 }
