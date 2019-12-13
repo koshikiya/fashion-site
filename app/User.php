@@ -58,7 +58,32 @@ class User extends Authenticatable
             $this->favorites()->detach($fashionId);
             return true;
         }
-        
     }
+    
+    public function followings(){
+       
+        return $this->belongsToMany(User::class,'follows','user_id','follow_id')->withTimestamps();
+    }
+    public function followers(){
+        
+        return $this->belongsToMany(User::class,'follows','follow_id','user_id')->withTimestamps();
+    }
+    
+    public function following($userId){
+        return $this->followings()->where('follow_id',$userId)->exists();
+    }
+    
+    public function follow($userId){
+        
+        $exist = $this->following($userId);
+        $me = $this->id == $userId;
+        
+        if(!$exist || !$its_me){
+            $this->followings()->attach($userId);
+            return true; 
+        }
+    }
+    
+    
     
 }
