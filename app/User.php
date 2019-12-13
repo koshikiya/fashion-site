@@ -78,12 +78,20 @@ class User extends Authenticatable
         $exist = $this->following($userId);
         $me = $this->id == $userId;
         
-        if(!$exist || !$its_me){
+        if(!$exist || !$me){
             $this->followings()->attach($userId);
             return true; 
         }
     }
     
-    
+    public function unfollow($userId){
+        $exist = $this->following($userId);
+        $me = $this->id == $userId;
+        
+        if($exist && !$me){
+            $this->followings()->detach($userId);
+            return true;
+        }
+    }
     
 }
