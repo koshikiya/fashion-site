@@ -70,7 +70,12 @@ class FashionsController extends Controller
     public function show($id)
     {
         $fashion = Fashion::find($id);
-        return view('fashions.show',['fashion' => $fashion]);
+        $user = $fashion->user;
+        $data =[
+                'fashion'=> $fashion,
+                'user'=> $user,
+                ];
+        return view('fashions.show',$data);
     }
 
     /**
