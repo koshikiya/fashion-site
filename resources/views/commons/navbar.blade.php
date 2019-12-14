@@ -16,7 +16,7 @@
                         <ul class="dropdown-menu dropdown-menu-right">
                             <li class="dropdown-item">{!! link_to_route('fashions.index','トップページ') !!}</li>
                             <li class="dropdown-item"><a href="#">ランキング </a></li>
-                            <li class="dropdown-item"><a href="#">タイムライン</a></li>
+                            <li class="dropdown-item">{!! link_to_route('user.timeline','タイムライン') !!}</li>
                             <li class="dropdown-item"><a href="#">マイページ</a></li>
                             <li class="dropdown-divider"></li>
                             <li class="dropdown-item">{!! link_to_route('logout.get', 'Logout') !!}</li>

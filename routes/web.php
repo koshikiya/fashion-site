@@ -24,6 +24,7 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('fashions', 'FashionsController',['only'=>['create','store','show','edit','update','destroy']]);
     Route::resource('users', 'UsersController', ['only' => ['show']]);
+    Route::get('timeline','UsersController@timeline')->name('user.timeline');
     
     Route::group(['prefix' => 'user/{id}'], function(){
         Route::post('favorite','FavoritesController@store')->name('fashion.favorite');
