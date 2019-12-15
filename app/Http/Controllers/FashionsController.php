@@ -141,7 +141,11 @@ class FashionsController extends Controller
         return redirect('/');
     }
     
-   
+   public function ranking(){
+       
+       $fashions = Fashion::orderBy('favorite_count', 'desc')->paginate(12);
+       return view('fashions.ranking',['fashions' => $fashions]);
+   }
     
     
 }

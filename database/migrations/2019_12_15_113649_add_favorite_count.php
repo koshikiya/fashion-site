@@ -14,7 +14,7 @@ class AddFavoriteCount extends Migration
     public function up()
     {
         Schema::table('fashions', function (Blueprint $table) {
-            $table->integer('favorite_count')->unsigned();
+            $table->integer('favorite_count')->unsigned()->nullable();
         });
     }
 

@@ -5,7 +5,7 @@
 
 
     @if (count($fashions) > 0)
-        <table class="table table-striped">
+        <table class="table table-bordered">
 
             @foreach ($fashions as $fashion)
                 <dl>

@@ -25,7 +25,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('fashions', 'FashionsController',['only'=>['create','store','show','edit','update','destroy']]);
     Route::resource('users', 'UsersController', ['only' => ['show']]);
     Route::get('timeline','UsersController@timeline')->name('user.timeline');
-    //Route::get('ranking','FashionsController@ranking')->name('fashions.ranking');
+    Route::get('ranking','FashionsController@ranking')->name('fashions.ranking');
     
     Route::group(['prefix' => 'user/{id}'], function(){
         Route::post('favorite','FavoritesController@store')->name('fashion.favorite');
