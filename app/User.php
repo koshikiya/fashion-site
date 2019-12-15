@@ -47,7 +47,7 @@ class User extends Authenticatable
         
         if(!$exist){
             $this->favorites()->attach($fashionId);
-            return true;
+            return 1;
         }
     }
     
@@ -56,7 +56,7 @@ class User extends Authenticatable
         
         if($exist){
             $this->favorites()->detach($fashionId);
-            return true;
+            return 1;
         }
     }
     

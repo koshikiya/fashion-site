@@ -9,8 +9,9 @@
 
             @foreach ($fashions as $fashion)
                 <dl>
-                    <dd><img src="/storage/image/{{$fashion->photo}}",width="200" height="200"></dd>
+                    <dd><img src="/storage/image/{{$fashion->photo}}" width="200" height="200"></dd>
                     <dd>{{ $fashion->fashion_comment }}</dd>
+                    <dd>{{ $fashion->favorite_count }}</dd>
                     {!! Form::open(['route' => ['fashions.show',$fashion->id],'method'=>'get']) !!}
                         {!! Form::submit('詳細',['class' => 'btn btn-default btn-sm' ]) !!}
                     {!! Form::close() !!}

@@ -1,5 +1,3 @@
-
-
 @extends('layouts.app')
 
 @section('content')
@@ -11,6 +9,7 @@
                 <dl>
                     <dd><img src="/storage/image/{{$fashion->photo}}" width="200" height="200"></dd>
                     <dd>{{ $fashion->fashion_comment }}</dd>
+                    <dd>{{ count($fashion->favorited) }}</dd>
                     {!! Form::open(['route' => ['fashions.show',$fashion->id],'method'=>'get']) !!}
                         {!! Form::submit('詳細',['class' => 'btn btn-default btn-sm' ]) !!}
                     {!! Form::close() !!}
@@ -21,6 +20,7 @@
         </table>
         
     @else
-        <p>投稿はありません。</p>
+        <p>投稿はありません</p>
     @endif
+
 @endsection

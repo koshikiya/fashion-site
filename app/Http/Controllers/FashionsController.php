@@ -141,5 +141,7 @@ class FashionsController extends Controller
         return redirect('/');
     }
     
+   
+    
     
 }
