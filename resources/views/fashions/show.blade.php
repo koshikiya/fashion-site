@@ -3,10 +3,12 @@
 @section('content')
 
 
-    <table class="table table-bordered">
-        <tr>
-            <td><img src="/storage/image/{{ $fashion->photo }}",width="200" height="200"></td>
-        </tr>
+    <div class="box1">
+        <div class="left">
+            <td><img src="/storage/image/{{ $fashion->photo }}",width="300" height="600"></td>
+        </div>
+        <table class="table table-responsive">
+        <div class="right">
         <tr>
             <td>{{ $fashion->fashion_comment }}</td>
         </tr>
@@ -30,7 +32,9 @@
             <td>ユーザー</td>
             <td>{!! link_to_route('users.show', $user->name, ['id' => $user->id]) !!}</td>
         </tr>
-    </table>
+        </div>
+        </table>
+    </div>
     
     @if(Auth::id() === $fashion->user_id)
         {!! Form::open(['route' =>['fashions.edit', $fashion->id], 'method' => 'get']) !!}

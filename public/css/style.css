@@ -43,3 +43,9 @@ p{
   font-family: Impact,Charcoal;
 }
 
+.left{
+  float: left;
+}
+.right{
+  float: right;
+}
