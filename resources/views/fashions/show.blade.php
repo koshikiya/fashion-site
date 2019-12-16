@@ -3,12 +3,15 @@
 @section('content')
 
 
-    <div class="box1">
-        <div class="left">
-            <td><img src="/storage/image/{{ $fashion->photo }}",width="300" height="600"></td>
-        </div>
-        <table class="table table-responsive">
-        <div class="right">
+    
+        <div class="container">
+            <div class="row">
+            <div class="col-sm">
+                <td><img src="/storage/image/{{ $fashion->photo }}", class="img-fluid"></td>
+            </div>
+    
+    <table>
+        <div class="col-sm">
         <tr>
             <td>{{ $fashion->fashion_comment }}</td>
         </tr>
@@ -33,8 +36,9 @@
             <td>{!! link_to_route('users.show', $user->name, ['id' => $user->id]) !!}</td>
         </tr>
         </div>
-        </table>
+    </table>
     </div>
+</div>
     
     @if(Auth::id() === $fashion->user_id)
         {!! Form::open(['route' =>['fashions.edit', $fashion->id], 'method' => 'get']) !!}
