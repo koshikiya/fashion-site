@@ -5,22 +5,14 @@
 
 
     @if (count($fashions) > 0)
-        <table class="table table-bordered">
-
-            @foreach ($fashions as $fashion)
+    <div class="box">
+        @foreach ($fashions as $fashion)
                 <dl>
-                    <dd><img src="/storage/image/{{$fashion->photo}}" width="200" height="200"></dd>
-                    <dd>{{ $fashion->fashion_comment }}</dd>
-                    <dd>{{ $fashion->favorite_count }}</dd>
-                    {!! Form::open(['route' => ['fashions.show',$fashion->id],'method'=>'get']) !!}
-                        {!! Form::submit('詳細',['class' => 'btn btn-default btn-sm' ]) !!}
-                    {!! Form::close() !!}
+                    <dd><a href="{{ action('FashionsController@show', $fashion->id) }}"><img src="/storage/image/{{$fashion->photo}}" width="230" height="300"></a></dd>
+                    <dd>{{ $fashion->user->name }}</dd>
                 </dl>
-                
-            @endforeach
-            
-        </table>
-        
+        @endforeach
+    </div>
     @else
         <p>投稿はありません</p>
     @endif
