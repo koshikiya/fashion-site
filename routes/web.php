@@ -23,7 +23,7 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('fashions', 'FashionsController',['only'=>['create','store','show','edit','update','destroy']]);
-    Route::resource('users', 'UsersController', ['only' => ['show']]);
+    Route::resource('users', 'UsersController', ['only' => ['show','edit','update']]);
     Route::get('timeline','UsersController@timeline')->name('user.timeline');
     Route::get('ranking','FashionsController@ranking')->name('fashions.ranking');
     

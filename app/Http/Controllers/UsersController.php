@@ -15,6 +15,10 @@ class UsersController extends Controller
             'user' => $user,
         ]);
     }
+    public function edit($id){
+        $user = new User;
+        return view('users.edit',['user' => $user]);
+    }
     
     public function timeline(){
         $user = \Auth::user();
