@@ -10,8 +10,8 @@
                 <td><img src="/storage/image/{{ $fashion->photo }}", class="img-fluid"></td>
             </div>
     
-    <table>
         <div class="col-sm">
+        <table>
         <tr>
             <td>{{ $fashion->fashion_comment }}</td>
         </tr>
@@ -35,8 +35,9 @@
             <td>ユーザー</td>
             <td>{!! link_to_route('users.show', $user->name, ['id' => $user->id]) !!}</td>
         </tr>
+        </table>
         </div>
-    </table>
+    
     </div>
 </div>
     
