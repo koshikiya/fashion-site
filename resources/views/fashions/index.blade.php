@@ -10,9 +10,9 @@
                 <dl>
                     <dd><a href="{{ action('FashionsController@show', $fashion->id) }}"><img src="/storage/image/{{$fashion->photo}}" width="230" height="300"></a></dd>
                     <div class="user">
-                        {{ $fashion->user->name }}
+                        <a href="{{ action('UsersController@show', $fashion->user->id) }}"><img class="icon" src="/storage/image/{{ $fashion->photo }}",width="40" height="49"></a>
+                        <p>{{ $fashion->user->name }}</p>
                     </div>
-                    
                 </dl>
         @endforeach
     </div>

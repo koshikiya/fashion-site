@@ -143,8 +143,14 @@ class FashionsController extends Controller
     
    public function ranking(){
        
+       //$ranks = \DB::table('fashions')->select(\DB::raw('RANK() OVER(ORDER BY favorite_count DESC) AS rank, photo'))->get();
+    
        $fashions = Fashion::orderBy('favorite_count', 'desc')->paginate(12);
-       return view('fashions.ranking',['fashions' => $fashions]);
+       $data =[
+           'fashions' => $fashions,
+           
+           ];
+       return view('fashions.ranking',$data);
    }
     
     
