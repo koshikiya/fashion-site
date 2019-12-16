@@ -11,8 +11,9 @@
             </div>
     
         <div class="col-sm">
-        <table class="table ">
+        <table class="table table-bordered">
         <tr>
+            <td>詳細</td>
             <td>{{ $fashion->fashion_comment }}</td>
         </tr>
         <tr>
