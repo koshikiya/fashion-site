@@ -11,7 +11,7 @@
             </div>
     
         <div class="col-sm">
-        <table>
+        <table class="table ">
         <tr>
             <td>{{ $fashion->fashion_comment }}</td>
         </tr>
@@ -35,31 +35,33 @@
             <td>ユーザー</td>
             <td>{!! link_to_route('users.show', $user->name, ['id' => $user->id]) !!}</td>
         </tr>
+        <tr>
+         <td>   
+         @if(Auth::id() === $fashion->user_id)
+            {!! Form::open(['route' =>['fashions.edit', $fashion->id], 'method' => 'get']) !!}
+                {!! Form::submit('編集',['class' =>'btn btn-default btn-sm']) !!}
+            {!! Form::close() !!} 
+            {!! Form::open(['route' =>['fashions.destroy', $fashion->id], 'method' => 'delete']) !!}
+                {!! Form::submit('削除',['class' =>'btn btn-default btn-sm']) !!}
+            {!! Form::close() !!} 
+        @else
+            @if (Auth::user()->favoring($fashion->id))
+            {!! Form::open(['route' => ['fashion.unfavorite', $fashion->id], 'method' => 'delete']) !!}
+                {!! Form::submit('お気に入りを外す', ['class' => "btn btn-default btn-sm"]) !!}
+            {!! Form::close() !!}
+            @else
+            {!! Form::open(['route' => ['fashion.favorite', $fashion->id]]) !!}
+                {!! Form::submit('お気にりする', ['class' => "btn btn-default btn-sm"]) !!}
+            {!! Form::close() !!}
+            @endif
+         
+        @endif
+        </td>
+        </tr>
         </table>
         </div>
-    
     </div>
 </div>
     
-    @if(Auth::id() === $fashion->user_id)
-        {!! Form::open(['route' =>['fashions.edit', $fashion->id], 'method' => 'get']) !!}
-            {!! Form::submit('編集',['class' =>'btn btn-default btn-sm']) !!}
-        {!! Form::close() !!} 
-        {!! Form::open(['route' =>['fashions.destroy', $fashion->id], 'method' => 'delete']) !!}
-            {!! Form::submit('削除',['class' =>'btn btn-default btn-sm']) !!}
-        {!! Form::close() !!} 
-    @else
-        @if (Auth::user()->favoring($fashion->id))
-        {!! Form::open(['route' => ['fashion.unfavorite', $fashion->id], 'method' => 'delete']) !!}
-            {!! Form::submit('お気に入りを外す', ['class' => "btn btn-default btn-sm"]) !!}
-        {!! Form::close() !!}
-        @else
-        {!! Form::open(['route' => ['fashion.favorite', $fashion->id]]) !!}
-            {!! Form::submit('お気にりする', ['class' => "btn btn-default btn-sm"]) !!}
-        {!! Form::close() !!}
-        @endif
-        
-
-    @endif
-    
+   
 @endsection
