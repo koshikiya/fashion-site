@@ -32,9 +32,15 @@ class UsersController extends Controller
     }
     
     public function mypage($id){
-        
+    
         $user = User::find($id);
-        return view('users.mypage',['user' => $user]);
+        $myfashions = $user->fashions;
+        
+        $data =[
+            'user' => $user,
+            'myfashions' => $myfashions
+            ];
+        return view('users.mypage',$data);
     }
     
     public function followings($id){
