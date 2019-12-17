@@ -8,7 +8,7 @@
                 <dl>
                     <dd><a href="{{ action('FashionsController@show', $fashion->id) }}"><img src="/storage/image/{{$fashion->photo}}" width="230" height="330"></a></dd>
                     <div class="user">
-                        <a href="{{ action('UsersController@show', $fashion->user->id) }}"><img class="icon" src="/storage/image/{{ $fashion->photo }}",width="40" height="49"></a>
+                        <a href="{{ action('UsersController@show', $fashion->user->id) }}"><img class="icon" src="/storage/image/{{ $fashion->user->user_photo }}"></a>
                         <p>{{ $fashion->user->name }}</p>
                     </div>
                 </dl>

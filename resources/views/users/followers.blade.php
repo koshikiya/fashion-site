@@ -15,26 +15,26 @@
     <div class='nav1'>
     <ul class="nav nav-tabs nav-justified ">
         <li class="nav-item">{!! link_to_route('user.mypage','投稿'.count($user->fashions),['id' => Auth::id()],['class'=> "nav-link"]) !!}</li>
-        <li class="nav-item">{!! link_to_route('user.followings','フォロー'.count($user->followings),['id' => Auth::id()],['class'=> "nav-link active"]) !!}</li>
-        <li class="nav-item">{!! link_to_route('user.followers','フォロワー'.count($user->followers),['id' => Auth::id()],['class'=> "nav-link"]) !!}</li>
+        <li class="nav-item">{!! link_to_route('user.followings','フォロー'.count($user->followings),['id' => Auth::id()],['class'=> "nav-link "]) !!}</li>
+        <li class="nav-item">{!! link_to_route('user.followers','フォロワー'.count($user->followers),['id' => Auth::id()],['class'=> "nav-link active"]) !!}</li>
         <li class="nav-item">{!! link_to_route('user.favorites','お気に入り'.count($user->favorites),['id' => Auth::id()],['class'=> "nav-link"]) !!}</li>
     </ul>
     
-    @if (count($followings) > 0)
+    @if (count($followers) > 0)
     <div class="box3">
-        @foreach ($followings as $following)
+        @foreach ($followers as $follower)
                 <dl>
                     <div class="user1">
-                        <a href="{{ action('UsersController@show', $following->id) }}"><img class="icon" src="/storage/image/{{ $following->user_photo }}"></a>
-                        <p>{{ $following->name }}</p>
+                        <a href="{{ action('UsersController@show', $follower->id) }}"><img class="icon" src="/storage/image/{{ $follower->user_photo }}"></a>
+                        <p>{{ $follower->name }}</p>
                         <dd>
-                        @if (Auth::id() != $following->id)
-                            @if (Auth::user()->following($following->id))
-                                {!! Form::open(['route' => ['user.unfollow', $following->id], 'method' => 'delete']) !!}
+                        @if (Auth::id() != $follower->id)
+                            @if (Auth::user()->following($follower->id))
+                                {!! Form::open(['route' => ['user.unfollow', $follower->id], 'method' => 'delete']) !!}
                                     {!! Form::submit('フォロー外す', ['class' => "btn1 btn-default btn-sm"]) !!}
                                 {!! Form::close() !!}
                             @else
-                                {!! Form::open(['route' => ['user.follow', $following->id]]) !!}
+                                {!! Form::open(['route' => ['user.follow', $follower->id]]) !!}
                                     {!! Form::submit('フォローする', ['class' => 'btn1 btn-default btn-sm']) !!}
                                 {!! Form::close() !!}
                             @endif

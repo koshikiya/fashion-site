@@ -73,13 +73,22 @@ class UsersController extends Controller
         $user = User::find($id);
         $followings = $user->followings;
         
-        return view('users.followings',['followings' => $followings]);
+        $data =[
+            'user' => $user,
+            'followings' => $followings
+            ];
+        
+        return view('users.followings',$data);
     }
     public function followers($id){
         $user = User::find($id);
         $followers = $user->followers;
+        $data =[
+            'user' => $user,
+            'followers' => $followers
+            ];
         
-        return view('users.followings',['followers' => $followers]);
+        return view('users.followers',$data);
     }
     public function favorites($id){
         $user = User::find($id);

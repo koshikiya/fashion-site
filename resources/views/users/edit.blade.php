@@ -28,7 +28,7 @@
                         <tr>
                             <td>
                             {!! Form::label('gender', '性別') !!}
-                            {!! Form::select('gender', ['WOMEN','MEN','KIDS'],null, ['placeholder' => '選択してください','class' => 'form-control']) !!}
+                            {!! Form::select('gender', ['WOMEN' => 'WOMEN','MEN' =>'MEN','KIDS' =>'KIDS'],null, ['placeholder' => '選択してください','class' => 'form-control']) !!}
                             </td>
                         </tr>
                         <tr>

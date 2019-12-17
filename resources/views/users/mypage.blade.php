@@ -5,6 +5,10 @@
     @if($user->user_photo !=null)
     <img class="icon2" src="/storage/image/{{ $user->user_photo }}">
     @endif
+    <div class="box2">
+    <p class='name'>{{ $user->name }}</p></br>
+    <p class="info">{{ $user->height }}/{{ $user->gender }}/{{ $user->age }}</p>
+    </div>
     {!! Form::open(['route' =>['users.edit',$user->id], 'method' => 'get']) !!}
         {!! Form::submit('プロフィール変更',['class' => "btn btn-default btn-md"]) !!}
     {!! Form::close() !!}

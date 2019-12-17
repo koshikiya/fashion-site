@@ -40,7 +40,7 @@ img{
 p{
   display: inline-block;
   padding-left: 15px;
-  font-family: Impact,Charcoal;
+  font-family: serif;
 }
 
 table{
@@ -59,4 +59,45 @@ table{
 .btn{
   border: solid 1px;
   margin: 10px 30px;
+  float: left;
+}
+.name{
+  font-size: 45px;
+  margin-left: 30px;
+  font-family: serif;
+}
+.box2{
+  display: inline-block;
+   margin-left: -30px;
+}
+.info{
+  font-family: serif;
+  font-size: 20px;
+  margin-left: 30px;
+  
+}
+
+.box3{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+
+
+.box3 dl{
+  padding: 10px;
+  width: 270px;
+  text-align: center;
+  margin: 10px;
+  
+}
+.user1{
+  text-align: left;
+  padding: 10px;
+  border: solid 1px;
+}
+
+.btn1{
+  background-color: white;
 }
