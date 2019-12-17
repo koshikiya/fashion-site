@@ -55,5 +55,15 @@ class UsersController extends Controller
         
         return view('users.followings',['followers' => $followers]);
     }
-    
+    public function favorites($id){
+        $user = \Auth::user();
+        $favorites = favorites()->orderBy('created_at', 'desc')->paginate(12);
+        
+        $data =[
+            'user' => $user,
+            'favorites' => $favorites
+            ];
+        
+        return view('users.favorites',$data);
+    }
 }

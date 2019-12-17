@@ -35,6 +35,6 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('followings','UsersController@followings')->name('user.followings');
         Route::get('followers','UsersController@followers')->name('user.followers');
         Route::get('mypage','UsersController@mypage')->name('user.mypage');
-        Route::get('favorites','UsersController@favorite')->name('user.favorites');
+        Route::get('favorites','UsersController@favorites')->name('user.favorites');
     });
 });
