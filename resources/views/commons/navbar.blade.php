@@ -1,8 +1,9 @@
 <header class="mb-4">
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark"> 
+    
+    <nav class="navbar navbar-expand-sm navbar-dark" style="background-color:black;"> 
         <a class="navbar-brand" href="/">Fashion-site</a>
          
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar" >
             <span class="navbar-toggler-icon"></span>
         </button>
         

@@ -12,6 +12,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-top: 60px;
 }
 a:hover img {
    filter: alpha(opacity=70);
@@ -68,7 +69,8 @@ table{
 }
 .box2{
   display: inline-block;
-   margin-left: -30px;
+  margin-left: -30px;
+  margin-top: 60px;
 }
 .info{
   font-family: serif;
@@ -100,4 +102,28 @@ table{
 
 .btn1{
   background-color: white;
+}
+footer{
+    width: 100%;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding-top:  10px;
+    margin-top: auto;
+    height: 50px;
+    margin-top: 400px;
+        
+}
+
+.navbar{
+  position: fixed;
+  width: 100%;
+  position:fixed;
+  top:0;
+  z-index:100;
+  margin-bottom: 60px;
+}
+
+.container{
+  margin-top: 100px;
 }

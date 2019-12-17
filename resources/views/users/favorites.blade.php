@@ -14,10 +14,10 @@
     {!! Form::close() !!}
     <div class='nav1'>
     <ul class="nav nav-tabs nav-justified ">
-        <li class="nav-item">{!! link_to_route('user.mypage','投稿'.count($user->fashions),['id' => Auth::id()],['class'=> "nav-link"]) !!}</li>
-        <li class="nav-item">{!! link_to_route('user.followings','フォロー'.count($user->followings),['id' => Auth::id()],['class'=> "nav-link"]) !!}</li>
-        <li class="nav-item">{!! link_to_route('user.followers','フォロワー'.count($user->followers),['id' => Auth::id()],['class'=> "nav-link"]) !!}</li>
-        <li class="nav-item">{!! link_to_route('user.favorites','お気に入り'.count($user->favorites),['id' => Auth::id()],['class'=> "nav-link active"]) !!}</li>
+        <li class="nav-item">{!! link_to_route('user.mypage','投稿'.count($user->fashions),['id' => $user->id],['class'=> "nav-link"]) !!}</li>
+        <li class="nav-item">{!! link_to_route('user.followings','フォロー'.count($user->followings),['id' => $user->id],['class'=> "nav-link"]) !!}</li>
+        <li class="nav-item">{!! link_to_route('user.followers','フォロワー'.count($user->followers),['id' => $user->id],['class'=> "nav-link"]) !!}</li>
+        <li class="nav-item">{!! link_to_route('user.favorites','お気に入り'.count($user->favorites),['id' => $user->id],['class'=> "nav-link active"]) !!}</li>
     </ul>
     
      @if (count($favorites) > 0)
@@ -26,13 +26,15 @@
                 <dl>
                     <dd><a href="{{ action('FashionsController@show', $favorite->id) }}"><img src="/storage/image/{{$favorite->photo}}" width="230" height="300"></a></dd>
                     <div class="user">
+                    <a href="{{ action('UsersController@show', $favorite->id) }}"><img class="icon" src="/storage/image/{{ $favorite->user_photo }}"></a>
                     <p>{{ $favorite->user->name }}</p> 
+                    <p class='favorite'><i class="fas fa-heart"></i>{{ count($favorite->favorited) }}</p>
                     </div>
                 </dl>
         @endforeach
     </div>
     @else
-        <p>投稿はありません</p>
+        <p>お気に入りはありません</p>
     @endif
     </div>
 

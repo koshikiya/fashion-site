@@ -10,6 +10,7 @@
                     <div class="user">
                         <a href="{{ action('UsersController@show', $fashion->user->id) }}"><img class="icon" src="/storage/image/{{ $fashion->user->user_photo }}"></a>
                         <p>{{ $fashion->user->name }}</p>
+                        <p class='favorite'><i class="fas fa-heart"></i>{{ count($fashion->favorited) }}</p>
                     </div>
                 </dl>
         @endforeach

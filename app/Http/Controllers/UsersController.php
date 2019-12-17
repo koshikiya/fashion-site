@@ -10,10 +10,15 @@ class UsersController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-
-        return view('users.show', [
+        $myfashions = $user->fashions;
+        
+        $data =[
             'user' => $user,
-        ]);
+            'myfashions' => $myfashions
+            ];
+
+        return view('users.show',$data);
+            
     }
     public function edit($id){
         $user = User::find($id);

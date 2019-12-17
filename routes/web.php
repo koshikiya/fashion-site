@@ -28,13 +28,16 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('ranking','FashionsController@ranking')->name('fashions.ranking');
     
     Route::group(['prefix' => 'user/{id}'], function(){
-        Route::post('favorite','FavoritesController@store')->name('fashion.favorite');
-        Route::delete('unfavorite','FavoritesController@destroy')->name('fashion.unfavorite');
         Route::post('follow','FollowsController@store')->name('user.follow');
         Route::delete('unfollow','FollowsController@destroy')->name('user.unfollow');
         Route::get('followings','UsersController@followings')->name('user.followings');
         Route::get('followers','UsersController@followers')->name('user.followers');
         Route::get('mypage','UsersController@mypage')->name('user.mypage');
         Route::get('favorites','UsersController@favorites')->name('user.favorites');
+    });
+    
+     Route::group(['prefix' => 'microposts/{id}'], function () {
+        Route::post('favorite','FavoritesController@store')->name('fashion.favorite');
+        Route::delete('unfavorite','FavoritesController@destroy')->name('fashion.unfavorite');
     });
 });
