@@ -30,4 +30,24 @@ class UsersController extends Controller
         
         return view('users.timeline',$data);
     }
+    
+    public function mypage($id){
+        
+        $user = User::find($id);
+        return view('users.mypage',['user' => $user]);
+    }
+    
+    public function followings($id){
+        $user = User::find($id);
+        $followings = $user->followings;
+        
+        return view('users.followings',['followings' => $followings]);
+    }
+    public function followers($id){
+        $user = User::find($id);
+        $followers = $user->followers;
+        
+        return view('users.followings',['followers' => $followers]);
+    }
+    
 }
