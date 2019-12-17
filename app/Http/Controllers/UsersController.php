@@ -16,9 +16,35 @@ class UsersController extends Controller
         ]);
     }
     public function edit($id){
-        $user = new User;
+        $user = User::find($id);
         return view('users.edit',['user' => $user]);
     }
+    
+    public function update(Request $request, $id){
+        $this->validate($request, [
+            'user_photo' => 'image|mimes:jpeg,png,jpg|max:1024',
+        ]);
+        //画像処理
+        $user =User::find($id);
+        if($request->hasFile('user_photo')){
+            \Storage::disk('local')->delete('public/image/'.$user->user_photo);
+            $name = $request->file('user_photo')->getClientOriginalName();
+            $filename = $request->file('user_photo')->storeAs('public/image', $name);
+            $request->user_photo = basename($filename);
+        }else{
+            $request->user_photo = $user->user_photo;
+        }
+        $user->update([
+            'user_photo' => $request->user_photo,
+            'name' => $request->name,
+            'height' => $request->height,
+            'gender' => $request->gender,
+            'age' => $request->age,
+        ]);
+        
+         return redirect('/'); 
+    }    
+    
     
     public function timeline(){
         $user = \Auth::user();
@@ -56,9 +82,9 @@ class UsersController extends Controller
         return view('users.followings',['followers' => $followers]);
     }
     public function favorites($id){
-        $user = \Auth::user();
-        $favorites = favorites()->orderBy('created_at', 'desc')->paginate(12);
-        
+        $user = User::find($id);
+        $favorites = $user->favorites()->orderBy('created_at', 'desc')->paginate(12);
+       
         $data =[
             'user' => $user,
             'favorites' => $favorites

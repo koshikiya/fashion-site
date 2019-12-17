@@ -15,7 +15,7 @@
                 <dl>
                     <dd><a href="{{ action('FashionsController@show', $favorite->id) }}"><img src="/storage/image/{{$favorite->photo}}" width="230" height="300"></a></dd>
                     <div class="user">
-                        
+                    <p>{{ $favorite->user->name }}</p> 
                     </div>
                 </dl>
         @endforeach

@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','user_photo','height','gender','age'
     ];
 
     /**
@@ -34,7 +34,7 @@ class User extends Authenticatable
     
     public function favorites(){
         
-        return $this->belongsToMany(User::class,'favorites','user_id','fashion_id')->withTimestamps();
+        return $this->belongsToMany(Fashion::class,'favorites','user_id','fashion_id')->withTimestamps();
     }
     //お気に入りしているかどうか
     public function favoring($fashionId){

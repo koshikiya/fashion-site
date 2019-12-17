@@ -4,7 +4,7 @@
 
     <div class="row">
             <div class="col-6">
-                {!! Form::model($user, ['route' => ['users.update',$user->id],'enctype'=>'multipart/form-data']) !!}
+                {!! Form::model($user, ['route' => ['users.update',$user->id],'enctype'=>'multipart/form-data','method' => 'put']) !!}
             
                     <table class="form-group">
                         <tr>
@@ -15,20 +15,26 @@
                         </tr>
                         <tr>
                             <td>
+                            {!! Form::label('name', 'ニックネーム') !!}
+                            {!! Form::text('name', null, ['class' => 'form-control']) !!}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
                             {!! Form::label('height', '身長') !!}
-                            {!! Form::selectRange('height', 140, 190, '', ['placeholder' => '選択してください','class' => 'form-control']) !!}
+                            {!! Form::selectRange('height', 140, 190, null, ['placeholder' => '選択してください','class' => 'form-control']) !!}
                             </td>
                         </tr>
                         <tr>
                             <td>
                             {!! Form::label('gender', '性別') !!}
-                            {!! Form::select('gender', ['WOMEN','MEN','KIDS'],'', ['placeholder' => '選択してください','class' => 'form-control']) !!}
+                            {!! Form::select('gender', ['WOMEN','MEN','KIDS'],null, ['placeholder' => '選択してください','class' => 'form-control']) !!}
                             </td>
                         </tr>
                         <tr>
                             <td>
-                            {!! Form::label('name', 'ニックネーム') !!}
-                            {!! Form::text('name', null, ['class' => 'form-control']) !!}
+                            {!! Form::label('age', '年齢') !!}
+                            {!! Form::selectRange('age', 0, 100, null, ['placeholder' => '選択してください','class' => 'form-control']) !!}
                             </td>
                         </tr>
                     </table>

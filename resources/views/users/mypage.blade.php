@@ -1,7 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-
+    
+    @if($user->user_photo !=null)
+    <img class="icon2" src="/storage/image/{{ $user->user_photo }}">
+    @endif
+    {!! Form::open(['route' =>['users.edit',$user->id], 'method' => 'get']) !!}
+        {!! Form::submit('プロフィール変更',['class' => "btn btn-default btn-md"]) !!}
+    {!! Form::close() !!}
+    <div class='nav1'>
     <ul class="nav nav-tabs nav-justified ">
         <li class="nav-item">{!! link_to_route('user.mypage','投稿'.count($user->fashions),['id' => Auth::id()],['class'=> "nav-link active"]) !!}</li>
         <li class="nav-item">{!! link_to_route('user.followings','フォロー'.count($user->followings),['id' => Auth::id()],['class'=> "nav-link"]) !!}</li>
@@ -23,7 +30,7 @@
     @else
         <p>投稿はありません</p>
     @endif
-
+    </div>
 
 
 

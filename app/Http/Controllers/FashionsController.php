@@ -42,7 +42,8 @@ class FashionsController extends Controller
             'fashion_comment' => 'required|max:191',
             'tops' => 'required|max:191',
             'bottoms' => 'required|max:191',
-            'shoes' => 'required|max:191'
+            'shoes' => 'required|max:191',
+            'photo'=>'image|mimes:jpeg,png,jpg|max:1024',
         ]);
         
         //画像処理
@@ -104,7 +105,8 @@ class FashionsController extends Controller
             'fashion_comment' => 'required|max:191',
             'tops' => 'required|max:191',
             'bottoms' => 'required|max:191',
-            'shoes' => 'required|max:191'
+            'shoes' => 'required|max:191',
+            'photo'=>'image|mimes:jpeg,png,jpg|max:1024',
         ]);
         //画像処理
         $fashion =Fashion::find($id);
@@ -136,6 +138,7 @@ class FashionsController extends Controller
     public function destroy($id)
     {
         $fashion = Fashion::find($id);
+        \Storage::disk('local')->delete('public/image/'.$fashion->photo);
         $fashion->delete();
         
         return redirect('/');
