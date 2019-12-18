@@ -18,7 +18,7 @@
                             <li class="dropdown-item">{!! link_to_route('fashions.index','トップページ') !!}</li>
                             <li class="dropdown-item">{!! link_to_route('fashions.ranking','ランキング ') !!}</li>
                             <li class="dropdown-item">{!! link_to_route('user.timeline','タイムライン') !!}</li>
-                            <li class="dropdown-item">{!! link_to_route('user.mypage','マイページ',['id' => Auth::id()]) !!}</li>
+                            <li class="dropdown-item">{!! link_to_route('users.show','マイページ',['id' => Auth::id()]) !!}</li>
                             <li class="dropdown-divider"></li>
                             <li class="dropdown-item">{!! link_to_route('logout.get', 'Logout') !!}</li>
                         </ul>

@@ -88,8 +88,11 @@ class FashionsController extends Controller
     public function edit($id)
     {
         $fashion = Fashion::find($id);
+        if(\Auth::id() === $fashion->user_id){
         
         return view('fashions.edit',['fashion' => $fashion]);
+        }
+        return redirect('/');
     }
 
     /**
@@ -138,9 +141,12 @@ class FashionsController extends Controller
     public function destroy($id)
     {
         $fashion = Fashion::find($id);
+        if(\Auth::id() === $tapioca->user_id){
+            
         \Storage::disk('local')->delete('public/image/'.$fashion->photo);
         $fashion->delete();
-        
+        //成功画面あとで追加
+        }
         return redirect('/');
     }
     

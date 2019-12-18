@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+    @include('commons.navbar2')
     @if (count($fashions) > 0)
     <div class="box">
         @foreach ($fashions as $fashion)

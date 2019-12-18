@@ -2,8 +2,6 @@
 
 @section('content')
 
-
-    
         <div class="container">
             <div class="row">
             <div class="col-sm">
@@ -37,8 +35,9 @@
             <td>{!! link_to_route('users.show', $user->name, ['id' => $user->id]) !!}</td>
         </tr>
         <tr>
-         <td>   
-         @if(Auth::id() === $fashion->user_id)
+         <td>  
+    @if (Auth::check())    
+        @if(Auth::id() === $fashion->user_id)
             {!! Form::open(['route' =>['fashions.edit', $fashion->id], 'method' => 'get']) !!}
                 {!! Form::submit('編集',['class' =>'btn btn-default btn-sm']) !!}
             {!! Form::close() !!} 
@@ -55,8 +54,10 @@
                 {!! Form::submit('お気にりする', ['class' => "btn btn-default btn-sm"]) !!}
             {!! Form::close() !!}
             @endif
-         
         @endif
+    @else
+        {!! link_to_route('login', 'お気に入りする', [], ['class' => 'btn btn-lg midashi-btn']) !!}
+    @endif    
         </td>
         </tr>
         </table>

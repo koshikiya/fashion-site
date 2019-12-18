@@ -20,9 +20,14 @@ class UsersController extends Controller
         return view('users.show',$data);
             
     }
+ 
     public function edit($id){
+        
         $user = User::find($id);
+        if(\Auth::id() == $user->id){
         return view('users.edit',['user' => $user]);
+        }
+        return redirect('/');
     }
     
     public function update(Request $request, $id){
@@ -62,17 +67,6 @@ class UsersController extends Controller
         return view('users.timeline',$data);
     }
     
-    public function mypage($id){
-    
-        $user = User::find($id);
-        $myfashions = $user->fashions;
-        
-        $data =[
-            'user' => $user,
-            'myfashions' => $myfashions
-            ];
-        return view('users.mypage',$data);
-    }
     
     public function followings($id){
         $user = User::find($id);
