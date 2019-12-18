@@ -161,6 +161,11 @@ class FashionsController extends Controller
            ];
        return view('fashions.ranking',$data);
    }
-    
+   public function category($id){
+       $users = User::where('gender',$id)->pluck('id')->toArray();
+       $fashions =Fashion::whereIn('user_id',$users)->get();
+        return view('fashions.category',['fashions' => $fashions]);
+   }
+   
     
 }

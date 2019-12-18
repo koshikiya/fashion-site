@@ -18,5 +18,7 @@ class Fashion extends Model
         return $this->belongsToMany(User::class,'favorites','fashion_id','user_id');
     }
     
+
+    
 }
 
