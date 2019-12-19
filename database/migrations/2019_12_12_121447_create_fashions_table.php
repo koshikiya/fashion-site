@@ -18,7 +18,6 @@ class CreateFashionsTable extends Migration
             $table->integer('user_id')->unsigned()->index();
             $table->string('photo');
             $table->string('photo_name');
-            $table->string('fashion_comment');
             $table->string('tops');
             $table->string('bottoms');
             $table->string('shoes');

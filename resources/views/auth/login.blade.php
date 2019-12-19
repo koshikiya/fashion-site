@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="text-center">
-        <h1>Log in</h1>
+        <h2>ログイン</h2>
     </div>
 
     <div class="row">
@@ -10,19 +10,20 @@
 
             {!! Form::open(['route' => 'login.post']) !!}
                 <div class="form-group">
-                    {!! Form::label('email', 'Email') !!}
+                    {!! Form::label('email', 'メールアドレス') !!}
                     {!! Form::email('email', old('email'), ['class' => 'form-control']) !!}
                 </div>
 
                 <div class="form-group">
-                    {!! Form::label('password', 'Password') !!}
+                    {!! Form::label('password', 'パスワード') !!}
                     {!! Form::password('password', ['class' => 'form-control']) !!}
                 </div>
-
-                {!! Form::submit('Log in', ['class' => 'btn btn-primary btn-block']) !!}
+               
+                <div class="info">{!! Form::submit('ログイン', ['class' => 'btn btn-md']) !!}</div>
+                
             {!! Form::close() !!}
-
-            <p class="mt-2">New user? {!! link_to_route('signup.get', 'Sign up now!') !!}</p>
+           
+            <p class="mt-2">会員登録をしてない方は{!! link_to_route('signup.get', 'こちら') !!}</p>
         </div>
     </div>
 @endsection

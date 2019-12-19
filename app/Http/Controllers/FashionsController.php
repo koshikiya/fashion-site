@@ -39,7 +39,6 @@ class FashionsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'fashion_comment' => 'required|max:191',
             'tops' => 'required|max:191',
             'bottoms' => 'required|max:191',
             'shoes' => 'required|max:191',
@@ -55,7 +54,6 @@ class FashionsController extends Controller
         $fashion->photo_name =$name;
             
         $request->user()->fashions()->create([
-            'fashion_comment' => $request->fashion_comment,
             'tops' => $request->tops,
             'bottoms' => $request->bottoms,
             'shoes' => $request->shoes,
@@ -109,7 +107,6 @@ class FashionsController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'fashion_comment' => 'required|max:191',
             'tops' => 'required|max:191',
             'bottoms' => 'required|max:191',
             'shoes' => 'required|max:191',
@@ -129,7 +126,6 @@ class FashionsController extends Controller
             $request->photo = $fashion->photo;
         }
         $fashion->update([
-            'fashion_comment' => $request->fashion_comment,
             'tops' => $request->tops,
             'bottoms' => $request->bottoms,
             'shoes' => $request->shoes,

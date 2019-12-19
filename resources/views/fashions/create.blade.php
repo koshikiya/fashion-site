@@ -14,12 +14,6 @@
                 </tr>
                 <tr>
                     <td>
-                        {!! Form::label('fashion_comment', 'コーディネート詳細') !!}
-                        {!! Form::textarea('fashion_comment', null, ['class' => 'form-control','size' => '30x7']) !!}
-                    </td>
-                </tr>
-                <tr>
-                    <td>
                         {!! Form::label('tops', 'トップス') !!}
                         {!! Form::text('tops', null, ['class' => 'form-control']) !!}
                     </td>
