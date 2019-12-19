@@ -3,7 +3,7 @@
 @section('content')
 
     @if($user->user_photo !=null)
-        <img class="icon2" src="/storage/image/{{ $user->user_photo }}">
+        <img class="icon2" src="{{ $user->user_photo }}">
     @endif
         <div class="box2">
             <p class='name'>{{ $user->name }}</p></br>
@@ -44,9 +44,9 @@
     <div class="box">
         @foreach ($favorites as $favorite)
                 <dl>
-                    <dd><a href="{{ action('FashionsController@show', $favorite->id) }}"><img src="/storage/image/{{$favorite->photo}}" width="230" height="300"></a></dd>
+                    <dd><a href="{{ action('FashionsController@show', $favorite->id) }}"><img src="{{$favorite->photo}}" width="230" height="300"></a></dd>
                     <div class="user">
-                    <a href="{{ action('UsersController@show', $favorite->id) }}"><img class="icon" src="/storage/image/{{ $favorite->user->user_photo }}"></a>
+                    <a href="{{ action('UsersController@show', $favorite->id) }}"><img class="icon" src="{{ $favorite->user->user_photo }}"></a>
                     <p>{{ $favorite->user->name }}</p> 
                     <p class='favorite'><i class="fas fa-heart"></i>{{ count($favorite->favorited) }}</p>
                     </div>

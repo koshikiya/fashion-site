@@ -37,10 +37,13 @@ class UsersController extends Controller
         //画像処理
         $user =User::find($id);
         if($request->hasFile('user_photo')){
-            \Storage::disk('local')->delete('public/image/'.$user->user_photo);
+            $disk =\Storage::disk('s3');
+            $disk->delete($user->user_photo_name);
+            $file = $request->file('user_photo');
             $name = $request->file('user_photo')->getClientOriginalName();
-            $filename = $request->file('user_photo')->storeAs('public/image', $name);
-            $request->user_photo = basename($filename);
+            $path =\Storage::disk('s3')->putFileas('/', $file,$name,'public');
+            $request->user_photo = \Storage::disk('s3')->url($path);
+            $user->user_photo_name = $name;
         }else{
             $request->user_photo = $user->user_photo;
         }
@@ -50,6 +53,7 @@ class UsersController extends Controller
             'height' => $request->height,
             'gender' => $request->gender,
             'age' => $request->age,
+            'user_photo_name' => $user->user_photo_name
         ]);
         
          return redirect('/'); 

@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'FashionsController@index')->name('fashions.index');
+Route::get('/', 'FashionsController@index')->name('fashion.index');
 
 
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');
@@ -19,10 +19,10 @@ Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
-Route::get('ranking','FashionsController@ranking')->name('fashions.ranking');
+Route::get('ranking','FashionsController@ranking')->name('fashion.ranking');
 
 Route::group(['prefix' => 'fashion/{id}'], function () {
-    Route::get('show','FashionsController@show')->name('fashions.show');
+    Route::get('show','FashionsController@show')->name('fashion.show');
     Route::get('category','FashionsController@category')->name('fashion.category');
 });
 

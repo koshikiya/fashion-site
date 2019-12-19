@@ -1,16 +1,15 @@
-
-
 @extends('layouts.app')
 
 @section('content')
 
+@include('commons.navbar2')
     @if (count($fashions) > 0)
     <div class="box">
         @foreach ($fashions as $fashion)
                 <dl>
-                    <dd><a href="{{ action('FashionsController@show', $fashion->id) }}"><img src="/storage/image/{{$fashion->photo}}" width="230" height="300"></a></dd>
+                    <dd><a href="{{ action('FashionsController@show', $fashion->id) }}"><img src="{{$fashion->photo}}" width="230" height="300"></a></dd>
                     <div class="user">
-                        <a href="{{ action('UsersController@show', $fashion->user->id) }}"><img class="icon" src="/storage/image/{{ $fashion->photo }}",width="40" height="49"></a>
+                        <a href="{{ action('UsersController@show', $fashion->user->id) }}"><img class="icon" src="{{ $fashion->user->user_photo }}",width="40" height="49"></a>
                         <p>{{ $fashion->user->name }}</p>
                     </div>
                     

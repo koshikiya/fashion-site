@@ -14,7 +14,8 @@ class AddColumnUser extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('user_photo')->default('5183ef65b82a66cf573f324e59cf028b.png');
+            $table->string('user_photo')->default('https://koshikiyabucket.s3-ap-northeast-1.amazonaws.com/noimage.png');
+            $table->string('user_photo_name')->nullable();
             $table->integer('height')->nullable();
             $table->string('gender')->nullable();
             $table->integer('age')->nullable();

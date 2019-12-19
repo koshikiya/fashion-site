@@ -5,13 +5,13 @@
         <div class="container">
             <div class="row">
             <div class="col-sm">
-                <td><img src="/storage/image/{{ $fashion->photo }}", class="img-fluid"></td>
+                <td><img src="{{ $fashion->photo }}", class="img-fluid"></td>
             </div>
     
         <div class="col-sm">
-        <table class="table table-bordered">
+        <table class="table table-bordered table1 ">
         <tr>
-            <td>詳細</td>
+            <td style="width:50%">詳細</td>
             <td>{{ $fashion->fashion_comment }}</td>
         </tr>
         <tr>
@@ -56,7 +56,7 @@
             @endif
         @endif
     @else
-        {!! link_to_route('login', 'お気に入りする', [], ['class' => 'btn btn-lg midashi-btn']) !!}
+        {!! link_to_route('login', 'お気に入りする', [], ['class' => 'btn btn-sm midashi-btn']) !!}
     @endif    
         </td>
         </tr>

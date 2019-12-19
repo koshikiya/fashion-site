@@ -3,7 +3,7 @@
 @section('content')
     
     @if($user->user_photo !=null)
-    <img class="icon2" src="/storage/image/{{ $user->user_photo }}">
+    <img class="icon2" src="{{ $user->user_photo }}">
     @endif
     <div class="box2">
     <p class='name'>{{ $user->name }}</p></br>
@@ -46,7 +46,7 @@
         @foreach ($followers as $follower)
                 <dl>
                     <div class="user1">
-                        <a href="{{ action('UsersController@show', $follower->id) }}"><img class="icon" src="/storage/image/{{ $follower->user_photo }}"></a>
+                        <a href="{{ action('UsersController@show', $follower->id) }}"><img class="icon" src="{{ $follower->user_photo }}"></a>
                         <p>{{ $follower->name }}</p>
                         <dd>
                     @if (Auth::check())
@@ -63,7 +63,7 @@
                         @endif
                     @else
                         {!! Form::open(['route' => 'login', 'method' => 'get']) !!}
-                            {!! Form::submit('フォローする', ['class' => "btn btn-default btn-md"]) !!}
+                            {!! Form::submit('フォローする', ['class' => "btn btn-default btn-sm"]) !!}
                         {!! Form::close() !!}
                     @endif
                        </dd>

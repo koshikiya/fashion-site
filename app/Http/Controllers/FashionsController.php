@@ -43,21 +43,25 @@ class FashionsController extends Controller
             'tops' => 'required|max:191',
             'bottoms' => 'required|max:191',
             'shoes' => 'required|max:191',
-            'photo'=>'image|mimes:jpeg,png,jpg|max:1024',
+            'photo'=>'required|image|mimes:jpeg,png,jpg|max:1024',
         ]);
         
         //画像処理
+        $fashion = new Fashion;
+        $file = $request->file('photo');
         $name = $request->file('photo')->getClientOriginalName();
-        $filename = $request->file('photo')->storeAs('public/image', $name);
-        $request->photo = basename($filename);
-        
+        $path =\Storage::disk('s3')->putFileas('/', $file,$name,'public');
+        $request->photo = \Storage::disk('s3')->url($path);
+        $fashion->photo_name =$name;
+            
         $request->user()->fashions()->create([
             'fashion_comment' => $request->fashion_comment,
             'tops' => $request->tops,
             'bottoms' => $request->bottoms,
             'shoes' => $request->shoes,
             'accessory' => $request->accessory,
-            'photo' => $request->photo]);
+            'photo' => $request->photo,
+            'photo_name' => $fashion->photo_name]);
             
             return redirect('/');
     }
@@ -109,15 +113,18 @@ class FashionsController extends Controller
             'tops' => 'required|max:191',
             'bottoms' => 'required|max:191',
             'shoes' => 'required|max:191',
-            'photo'=>'image|mimes:jpeg,png,jpg|max:1024',
+            'photo'=>'required|image|mimes:jpeg,png,jpg|max:1024',
         ]);
         //画像処理
         $fashion =Fashion::find($id);
         if($request->hasFile('photo')){
-            \Storage::disk('local')->delete('public/image/'.$fashion->photo);
+            $disk =\Storage::disk('s3');
+            $disk->delete($fashion->photo_name);
+            $file = $request->file('photo');
             $name = $request->file('photo')->getClientOriginalName();
-            $filename = $request->file('photo')->storeAs('public/image', $name);
-            $request->photo = basename($filename);
+            $path =\Storage::disk('s3')->putFileas('/', $file,$name,'public');
+            $request->photo = \Storage::disk('s3')->url($path);
+            $fashion->photo_name = $name;
         }else{
             $request->photo = $fashion->photo;
         }
@@ -127,7 +134,8 @@ class FashionsController extends Controller
             'bottoms' => $request->bottoms,
             'shoes' => $request->shoes,
             'accessory' => $request->accessory,
-            'photo' => $request->photo]);
+            'photo' => $request->photo,
+            'photo_name' => $fashion->photo_name]);
         
          return redirect('/'); 
     }
@@ -141,9 +149,10 @@ class FashionsController extends Controller
     public function destroy($id)
     {
         $fashion = Fashion::find($id);
-        if(\Auth::id() === $tapioca->user_id){
+        if(\Auth::id() === $fashion->user_id){
             
-        \Storage::disk('local')->delete('public/image/'.$fashion->photo);
+        $disk =\Storage::disk('s3');
+        $disk->delete($fashion->photo_name);
         $fashion->delete();
         //成功画面あとで追加
         }
@@ -154,18 +163,23 @@ class FashionsController extends Controller
        
        //$ranks = \DB::table('fashions')->select(\DB::raw('RANK() OVER(ORDER BY favorite_count DESC) AS rank, photo'))->get();
     
-       $fashions = Fashion::orderBy('favorite_count', 'desc')->paginate(12);
-       $data =[
+        $fashions = Fashion::orderBy('favorite_count', 'desc')->paginate(12);
+        $data =[
            'fashions' => $fashions,
            
            ];
        return view('fashions.ranking',$data);
    }
    public function category($id){
-       $users = User::where('gender',$id)->pluck('id')->toArray();
-       $fashions =Fashion::whereIn('user_id',$users)->get();
+        $users = User::where('gender',$id)->pluck('id')->toArray();//女のID配列
+       
+        //$timeline = \Auth::user()->timeline()->pluck('user_id');
+        //$fashions2 = $timeline->whereIn($key,$users);
+        //$fashions3 = Fashion::whereIn('user_id',$fashions2)->get();
+        //dd($users,$fashions2);
+        
+        $fashions =Fashion::whereIn('user_id',$users)->get();
         return view('fashions.category',['fashions' => $fashions]);
-   }
-   
+    }
     
 }

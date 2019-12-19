@@ -15,8 +15,8 @@
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }}</a>
                         <ul class="dropdown-menu dropdown-menu-right">
-                            <li class="dropdown-item">{!! link_to_route('fashions.index','トップページ') !!}</li>
-                            <li class="dropdown-item">{!! link_to_route('fashions.ranking','ランキング ') !!}</li>
+                            <li class="dropdown-item">{!! link_to_route('fashion.index','トップページ') !!}</li>
+                            <li class="dropdown-item">{!! link_to_route('fashion.ranking','ランキング ') !!}</li>
                             <li class="dropdown-item">{!! link_to_route('user.timeline','タイムライン') !!}</li>
                             <li class="dropdown-item">{!! link_to_route('users.show','マイページ',['id' => Auth::id()]) !!}</li>
                             <li class="dropdown-divider"></li>
