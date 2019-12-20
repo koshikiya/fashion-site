@@ -10,17 +10,17 @@
 
             <tr>
                 <td>ID</td>
-                <td>{{ authUser->id }}</td>
+                <td>{{ $authUser->id }}</td>
             </tr>
             <tr>
                 <td>ユーザー名</td>
-                <td>{{ authUser->name }}</td>
+                <td>{{ $authUser->name }}</td>
             </tr>
             <tr>
                 <td>email</td>
-                <td>{{ authUser->email }}</td>
+                <td>{{ $authUser->email }}</td>
             </tr>
-            <p class="mt-2">会員登録は{!! link_to_route('login', 'こちら') !!}</p>
+            <p class="mt-2">ログインは{!! link_to_route('login', 'こちら') !!}</p>
         </table>>
     </div>
 @endsection
