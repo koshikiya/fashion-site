@@ -6,7 +6,7 @@
         <dl>
             {!! Form::model($loginUser, ['route' => 'user.create']) !!}
             
-                <tr>
+                <tr>{{ $user->nickname }}
                     <td>
                         {!! Form::label('name', '名前') !!}
                         {!! Form::file('name', null, ['class' => 'form-control']) !!}
