@@ -47,7 +47,7 @@ class LoginController extends Controller
   public function handleProviderCallback($provider) {
     try {
       $user = Socialite::with($provider)->user();
-    
+      dd($user);
     } catch (\Exception $e) {
       return redirect('login'); // エラーならトップへ転送
     }
@@ -56,6 +56,7 @@ class LoginController extends Controller
             $user,
             $provider
         );
+
     Auth::login($authUser,true); // ログイン
     return redirect('/');
   }
