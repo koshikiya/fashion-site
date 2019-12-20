@@ -66,7 +66,7 @@ class LoginController extends Controller
       'provider' => $provider,
       'provider_id' => $user->id
       ]);
-      return redirect('login');  
+      return redirect('auth.complete');  
   
     }
   }
