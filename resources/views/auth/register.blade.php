@@ -35,7 +35,7 @@
             {!! Form::close() !!}
             
             <div class="info2">
-                {!! link_to_route('socialite.login','facebookで始める',['id' =>'github'],['class' => 'btn btn-md']) !!}
+                {!! link_to_route('socialite.login','facebookで始める',['id' =>'facebook'],['class' => 'btn btn-md']) !!}
                 {!! link_to_route('socialite.login','githubで始める',['id' =>'github'],['class' => 'btn btn-md']) !!}
             </div>
         </div>

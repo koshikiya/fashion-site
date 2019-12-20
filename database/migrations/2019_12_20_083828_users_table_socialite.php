@@ -17,7 +17,7 @@ class UsersTableSocialite extends Migration
             $table->string('email')->nullable()->change();
             $table->string('password')->nullable()->change();
             $table->string('provider');
-            $table->string('provider_id');
+            $table->string('provider_id')->unique();
         });
     }
 

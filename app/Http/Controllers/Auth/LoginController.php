@@ -41,38 +41,44 @@ class LoginController extends Controller
     }
     
     public function redirectToProvider($provider) {
+      
     return Socialite::driver($provider)->redirect();
   }
 
   public function handleProviderCallback($provider) {
-    try {
+    
+    try{
       $user = Socialite::with($provider)->user();
   
-    } catch (\Exception $e) {
-      return redirect('login'); // エラーならトップへ転送
+    }catch (\Exception $e) {
+      return redirect('login'); // エラーならログイントップへ転送
     }
-    //データ確認
-    $authUser = $this->findOrCreate(
-            $user,
-            $provider
-        );
-
-    Auth::login($authUser,true); // ログイン
-    return redirect('/');
+  
+    $authUser = User::where('provider_id',$user->id)->first();
+    
+    if($authUser){
+      Auth::login($authUser,true); // ログイン
+      return redirect('/');
+    }else{
+      $loginUser = new User;
+      $data =[
+        'provider' => $provider,
+        'user' => $user,
+        'loginUser' => $loginUser];
+        
+      return view('auth.createUser',$data);  
+    }
   }
   
-  public function findOrCreate($user,$provider){
+  public function authUserCreate(Request $request){
     
-      $authUser = User::where('provider_id',$user->id)->first();
-      if($authUser){
-          return $authUser;
-      }else{
-      return User::create([
-          'name' => $user->nickname,
-          'email' => $user->email,
-          'provider' => $provider,
-          'provider_id' => $user->id
-          ]);
-      }
-  }
+    User::create([
+      'name' => $request->nickname,
+      'email' => $request->email,
+      'provider' =>$request->provider,
+      'provider_id' => $request->id
+       ]);
+      return redirect('login');
+    }
+  
 }
