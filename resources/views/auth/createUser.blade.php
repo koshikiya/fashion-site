@@ -15,19 +15,19 @@
                 <tr>
                     <td>
                         {!! Form::label('email', 'メールアドレス') !!}
-                        {!! Form::text('email',null, ['class' => 'form-control']) !!}
+                        {!! Form::text('email',$user->mail, ['class' => 'form-control']) !!}
                     </td>
                 </tr>
                 <tr>
                     <td>
                         {!! Form::label('provider', 'プロバイダー') !!}
-                        {!! Form::text('provider',null, ['class' => 'form-control']) !!}
+                        {!! Form::text('provider',$provider, ['class' => 'form-control']) !!}
                     </td>
                 </tr>
                 <tr>
                     <td>
                         {!! Form::label('provider_id', 'プロバイダーID') !!}
-                        {!! Form::text('provider_id',null, ['class' => 'form-control']) !!}
+                        {!! Form::text('provider_id',$user->id, ['class' => 'form-control']) !!}
                     </td>
                 </tr>
             
