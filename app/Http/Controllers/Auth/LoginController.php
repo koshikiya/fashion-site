@@ -60,25 +60,17 @@ class LoginController extends Controller
       Auth::login($authUser,true); // ログイン
       return redirect('/');
     }else{
-      $loginUser = new User;
-      $data =[
-        'provider' => $provider,
-        'user' => $user,
-        'loginUser' => $loginUser];
-        
-      return view('auth.createUser',$data);  
+      User::create([
+      'name' => $user->nickname,
+      'email' => $user->email,
+      'provider' => $provider,
+      'provider_id' => $user->id
+      ]);
+      return redirect('login');  
+  
     }
   }
   
-  public function authUserCreate(Request $request){
-    dd($request->name);
-    User::create([
-      'name' => $request->name,
-      'email' => $request->email,
-      'provider' =>$request->provider,
-      'provider_id' => $request->provider_id
-       ]);
-      return redirect('login');
-    }
+
   
 }
