@@ -23,7 +23,7 @@ Route::get('ranking','FashionsController@ranking')->name('fashion.ranking');
 
 Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider')->name('socialite.login');
 Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
-Route::get('auth/usercreate', 'Auth\LoginController@authUserCreate')->name('user.create');
+Route::post('auth/usercreate', 'Auth\LoginController@authUserCreate')->name('user.create');
 
 Route::group(['prefix' => 'fashion/{id}'], function () {
     Route::get('show','FashionsController@show')->name('fashion.show');
