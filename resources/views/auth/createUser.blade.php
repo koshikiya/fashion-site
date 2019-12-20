@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="table"><p>以下登録でよろしいですか？</p>
+    <div class="table"><p>以下の登録でよろしいですか？</p>
         <dl>
             {!! Form::model($loginUser, ['route' => 'user.create']) !!}
             

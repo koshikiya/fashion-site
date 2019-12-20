@@ -71,7 +71,7 @@ class LoginController extends Controller
   }
   
   public function authUserCreate(Request $request){
-    
+    dd($request->nickname);
     User::create([
       'name' => $request->nickname,
       'email' => $request->email,
