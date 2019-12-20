@@ -9,7 +9,7 @@
                 <tr>
                     <td>
                         {!! Form::label('name', '名前') !!}
-                        {!! Form::text('name',"{{ $user->nickname }}", ['class' => 'form-control']) !!}
+                        {{ Form::text('name',"{{ $user->nickname }}", ['class' => 'form-control']) }}
                     </td>
                 </tr>
                 <tr>
