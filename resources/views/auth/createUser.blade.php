@@ -9,25 +9,25 @@
                 <tr>
                     <td>
                         {!! Form::label('name', '名前') !!}
-                        {!! Form::file('name', $user->nickname, ['class' => 'form-control']) !!}
+                        {!! Form::file('name', null, ['class' => 'form-control']) !!}
                     </td>
                 </tr>
                 <tr>
                     <td>
                         {!! Form::label('email', 'メールアドレス') !!}
-                        {!! Form::text('email', $user->email, ['class' => 'form-control']) !!}
+                        {!! Form::text('email',null, ['class' => 'form-control']) !!}
                     </td>
                 </tr>
                 <tr>
                     <td>
                         {!! Form::label('provider', 'プロバイダー') !!}
-                        {!! Form::text('provider',$provider, ['class' => 'form-control']) !!}
+                        {!! Form::text('provider',null, ['class' => 'form-control']) !!}
                     </td>
                 </tr>
                 <tr>
                     <td>
                         {!! Form::label('provider_id', 'プロバイダーID') !!}
-                        {!! Form::text('provider_id', $user->id, ['class' => 'form-control']) !!}
+                        {!! Form::text('provider_id',null, ['class' => 'form-control']) !!}
                     </td>
                 </tr>
             
