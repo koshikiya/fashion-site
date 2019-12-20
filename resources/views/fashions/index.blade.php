@@ -2,6 +2,13 @@
 
 @section('content')
     @include('commons.navbar2')
+    
+    @if(Session::has('message'))
+    <div class="alert alert-success" role="alert">
+        {{ session('message') }}
+    </div>
+    @endif
+    
     @if (count($fashions) > 0)
     <div class="box">
         @foreach ($fashions as $fashion)

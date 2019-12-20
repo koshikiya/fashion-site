@@ -1,13 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
+
+@if(Session::has('message'))
+    <div class="alert alert-success" role="alert">
+        {{ session('message') }}
+    </div>
+@endif
     
     @if($user->user_photo !=null)
         <img class="icon2" src="{{ $user->user_photo }}">
     @endif
     <div class="box2">
         <p class='name'>{{ $user->name }}</p></br>
-        <p class="info">{{ $user->height }}<span class="mgr-10">{{ $user->gender }}</span><span class="mgr-10">{{ $user->age }}</span></p>
+        <p class="info">{{ $user->gender }}
+        @if($user->height == !null)
+            <span class="mgr-10">{{ $user->height.'cm' }}</span></p>
+        @endif
     </div>
     @if (Auth::check()) 
         @if( Auth::id() == $user->id)

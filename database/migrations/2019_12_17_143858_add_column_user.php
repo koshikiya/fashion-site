@@ -18,7 +18,6 @@ class AddColumnUser extends Migration
             $table->string('user_photo_name')->nullable();
             $table->integer('height')->nullable();
             $table->string('gender')->nullable();
-            $table->integer('age')->nullable();
         });
     }
 
@@ -30,7 +29,7 @@ class AddColumnUser extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn(['user_photo','height','gender','age']);
+            $table->dropColumn(['user_photo','height','gender',]);
         });
     }
 }

@@ -61,7 +61,7 @@ class FashionsController extends Controller
             'photo' => $request->photo,
             'photo_name' => $fashion->photo_name]);
             
-            return redirect('/');
+            return redirect('/')->with('message', '投稿が完了しました。');
     }
 
     /**
@@ -133,7 +133,7 @@ class FashionsController extends Controller
             'photo' => $request->photo,
             'photo_name' => $fashion->photo_name]);
         
-         return redirect('/'); 
+         return redirect('/')->with('message', '更新が完了しました。');; 
     }
 
     /**
@@ -150,7 +150,7 @@ class FashionsController extends Controller
         $disk =\Storage::disk('s3');
         $disk->delete($fashion->photo_name);
         $fashion->delete();
-        //成功画面あとで追加
+        return redirect('/')->with('message', '削除が完了しました。');
         }
         return redirect('/');
     }

@@ -55,10 +55,10 @@ class LoginController extends Controller
     }
   
     $authUser = User::where('provider_id',$user->id)->first();
-    
+    //DBにデータがあればログインなければ登録
     if($authUser){
-      Auth::login($authUser,true); // ログイン
-      return redirect('/');
+      Auth::login($authUser,true); 
+      return redirect('/')->with('message', 'ログイン成功しました');;
     }else{
       $authUser= User::create([
                   'name' => $user->nickname,

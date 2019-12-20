@@ -5,13 +5,6 @@
     <div class="table">
         <dl>
             {!! Form::model($fashion, ['route' => 'fashions.store','enctype'=>'multipart/form-data']) !!}
-            
-                <tr>
-                    <td>
-                        {!! Form::label('photo', '画像') !!}
-                        {!! Form::file('photo', null, ['class' => 'form-control']) !!}
-                    </td>
-                </tr>
                 <tr>
                     <td>
                         {!! Form::label('tops', 'トップス') !!}
@@ -36,9 +29,16 @@
                         {!! Form::text('accessory', null, ['class' => 'form-control']) !!}
                     </td>
                 </tr>
-            
-                {!! Form::submit('投稿', ['class' => 'btn btn-primary']) !!}
-            
+                <tr>
+                    <td>
+                        {!! Form::label('photo', '画像') !!}
+                        {!! Form::file('photo', null, ['class' => 'form-control']) !!}
+                    </td>
+                </tr>
+                
+            <div style="text-align: center;">
+                {!! Form::submit('投稿', ['class' => 'btn btn-sm']) !!}
+            </div>
             {!! Form::close() !!}
             
         </dl>

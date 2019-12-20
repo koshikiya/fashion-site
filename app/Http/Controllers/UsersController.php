@@ -52,11 +52,10 @@ class UsersController extends Controller
             'name' => $request->name,
             'height' => $request->height,
             'gender' => $request->gender,
-            'age' => $request->age,
             'user_photo_name' => $user->user_photo_name
         ]);
         
-         return redirect('/'); 
+         return redirect(route('users.show', ['id' => $user->id]))->with('message', '更新が完了しました。'); 
     }    
     
     
