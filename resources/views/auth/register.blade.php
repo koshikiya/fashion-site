@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="text-center">
-        <h2>新規会員登録</h2>
+        <h3>新規会員登録</h3>
     </div>
 
     <div class="row">
@@ -28,10 +28,12 @@
                     {!! Form::label('password_confirmation', 'パスワード(確認)') !!}
                     {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
                 </div>
-                <nav class="nav navbar-nav justify-content-center">
+                
+                <div class="info2">
                     {!! Form::submit('登録', ['class' => 'btn btn-md ']) !!}
-                </nav>
+                </div>
             {!! Form::close() !!}
+            {!! link_to_route('socialite.login','github',['id' =>'github'],['class' => 'btn btn-md']) !!}
         </div>
     </div>
 @endsection

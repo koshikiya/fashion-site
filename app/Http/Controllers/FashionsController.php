@@ -157,9 +157,10 @@ class FashionsController extends Controller
     
    public function ranking(){
        
-       //$ranks = \DB::table('fashions')->select(\DB::raw('RANK() OVER(ORDER BY favorite_count DESC) AS rank, photo'))->get();
-    
+       //$ranks = \DB::table('fashions')->select(\DB::raw('RANK() OVER(ORDER BY favorite_count DESC) AS rank'))->get();
+       
         $fashions = Fashion::orderBy('favorite_count', 'desc')->paginate(12);
+        
         $data =[
            'fashions' => $fashions,
            
@@ -167,13 +168,7 @@ class FashionsController extends Controller
        return view('fashions.ranking',$data);
    }
    public function category($id){
-        $users = User::where('gender',$id)->pluck('id')->toArray();//女のID配列
-       
-        //$timeline = \Auth::user()->timeline()->pluck('user_id');
-        //$fashions2 = $timeline->whereIn($key,$users);
-        //$fashions3 = Fashion::whereIn('user_id',$fashions2)->get();
-        //dd($users,$fashions2);
-        
+        $users = User::where('gender',$id)->pluck('id')->toArray();
         $fashions =Fashion::whereIn('user_id',$users)->get();
         return view('fashions.category',['fashions' => $fashions]);
     }

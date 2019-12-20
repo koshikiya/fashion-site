@@ -21,6 +21,9 @@ Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 Route::get('ranking','FashionsController@ranking')->name('fashion.ranking');
 
+Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider')->name('socialite.login');
+Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
+
 Route::group(['prefix' => 'fashion/{id}'], function () {
     Route::get('show','FashionsController@show')->name('fashion.show');
     Route::get('category','FashionsController@category')->name('fashion.category');

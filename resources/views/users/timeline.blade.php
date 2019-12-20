@@ -2,7 +2,7 @@
 
 @section('content')
 
-@include('commons.navbar2')
+@include('commons.navbar3')
     @if (count($fashions) > 0)
     <div class="box">
         @foreach ($fashions as $fashion)

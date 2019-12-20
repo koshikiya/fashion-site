@@ -7,7 +7,7 @@
     @endif
     <div class="box2">
         <p class='name'>{{ $user->name }}</p></br>
-        <p class="info">{{ $user->height }}/{{ $user->gender }}/{{ $user->age }}</p>
+        <p class="info">{{ $user->height }}<span class="mgr-10">{{ $user->gender }}</span><span class="mgr-10">{{ $user->age }}</span></p>
     </div>
     @if (Auth::check()) 
         @if( Auth::id() == $user->id)

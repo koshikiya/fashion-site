@@ -133,10 +133,16 @@ footer{
   top:0;
   z-index:100;
 }
-.info {
+.info2 {
     font-family: monospace;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+.text-center{
+  margin-top: 30px;
+}
+.mgr-10{
+    margin-left : 10px;
 }
 
