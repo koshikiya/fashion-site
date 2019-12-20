@@ -15,7 +15,7 @@
                 <tr>
                     <td>
                         {!! Form::label('email', 'メールアドレス') !!}
-                        {!! Form::text('email',$user->mail, ['class' => 'form-control']) !!}
+                        {!! Form::text('email',$user->email, ['class' => 'form-control']) !!}
                     </td>
                 </tr>
                 <tr>
