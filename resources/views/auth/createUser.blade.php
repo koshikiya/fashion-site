@@ -6,10 +6,10 @@
         <dl>
             {!! Form::model($loginUser, ['route' => 'user.create']) !!}
             
-                <tr>{{ $user->nickname }}
+                <tr>
                     <td>
                         {!! Form::label('name', '名前') !!}
-                        {!! Form::file('name', null, ['class' => 'form-control']) !!}
+                        {!! Form::text('name',{{ $user->nickname }}, ['class' => 'form-control']) !!}
                     </td>
                 </tr>
                 <tr>
