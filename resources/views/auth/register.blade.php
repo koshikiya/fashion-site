@@ -33,7 +33,11 @@
                     {!! Form::submit('登録', ['class' => 'btn btn-md ']) !!}
                 </div>
             {!! Form::close() !!}
-            {!! link_to_route('socialite.login','github',['id' =>'github'],['class' => 'btn btn-md']) !!}
+            
+            <div class="info2">
+                {!! link_to_route('socialite.login','facebookで始める',['id' =>'github'],['class' => 'btn btn-md']) !!}
+                {!! link_to_route('socialite.login','githubで始める',['id' =>'github'],['class' => 'btn btn-md']) !!}
+            </div>
         </div>
     </div>
 @endsection
