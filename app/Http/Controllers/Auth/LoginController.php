@@ -60,13 +60,13 @@ class LoginController extends Controller
       Auth::login($authUser,true); // ログイン
       return redirect('/');
     }else{
-      User::create([
+      $authUser= User::create([
       'name' => $user->nickname,
       'email' => $user->email,
       'provider' => $provider,
       'provider_id' => $user->id
       ]);
-      return redirect('auth.complete');  
+      return view('auth.complete',['authUser' => $authUsers]);  
   
     }
   }

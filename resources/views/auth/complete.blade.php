@@ -10,15 +10,15 @@
 
             <tr>
                 <td>ID</td>
-                <td>{{ Auth::user()->id }}</td>
+                <td>{{ authUser->id }}</td>
             </tr>
             <tr>
                 <td>ユーザー名</td>
-                <td>{{ Auth::user()->name }}</td>
+                <td>{{ authUser->name }}</td>
             </tr>
             <tr>
                 <td>email</td>
-                <td>{{ Auth::user()->email }}</td>
+                <td>{{ authUser->email }}</td>
             </tr>
             <p class="mt-2">会員登録は{!! link_to_route('login', 'こちら') !!}</p>
         </table>>
