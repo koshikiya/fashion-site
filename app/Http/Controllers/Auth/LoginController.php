@@ -71,12 +71,12 @@ class LoginController extends Controller
   }
   
   public function authUserCreate(Request $request){
-    dd($request->nickname);
+    dd($request->name);
     User::create([
-      'name' => $request->nickname,
+      'name' => $request->name,
       'email' => $request->email,
       'provider' =>$request->provider,
-      'provider_id' => $request->id
+      'provider_id' => $request->provider_id
        ]);
       return redirect('login');
     }
