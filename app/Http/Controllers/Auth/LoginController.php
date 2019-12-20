@@ -61,12 +61,12 @@ class LoginController extends Controller
       return redirect('/');
     }else{
       $authUser= User::create([
-      'name' => $user->nickname,
-      'email' => $user->email,
-      'provider' => $provider,
-      'provider_id' => $user->id
-      ]);
-      return view('auth.complete',['authUser' => $authUsers]);  
+                  'name' => $user->nickname,
+                  'email' => $user->email,
+                  'provider' => $provider,
+                  'provider_id' => $user->id
+                ]);
+      return view('auth.complete',['authUser' => $authUser]);  
   
     }
   }
