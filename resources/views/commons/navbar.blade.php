@@ -1,11 +1,11 @@
 <header class="mb-4">
     
     <nav class="navbar navbar-expand-sm navbar-dark" style="background-color:black;"> 
-        <a class="navbar-brand" href="/">Fashion-site</a>
+        <a class="navbar-brand" href="/">-Fashion-site-</a>
     <table class="search">
     <tr>   
         {!! Form::open(['route' => ['fashion.keyword'],'method' => 'get']) !!}
-        <td>{!! Form::text('keyword',null,['placeholder' => 'テキスト入力欄','class' => 'form-control']) !!}</td>
+        <td>{!! Form::text('keyword',null,['placeholder' => 'アイテムを探す','class' => 'form-control']) !!}</td>
         <td>{!! Form::submit('検索',['class' => 'btn1 btn-sm']) !!}</td>
         {!! Form::close() !!}
     </tr>
