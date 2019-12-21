@@ -146,9 +146,16 @@ footer{
     margin-left : 10px;
 }
 
-.table{
+.table2{
   display: flex;
   justify-content: center;
   margin-top: 100px;
+}
+
+.pagination{
+  justify-content: center;
+  }
+.search{
+ margin-top: auto;
 }
 

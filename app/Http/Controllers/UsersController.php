@@ -61,7 +61,7 @@ class UsersController extends Controller
     
     public function timeline(){
         $user = \Auth::user();
-        $fashions = $user->timeline()->orderBy('created_at', 'desc')->paginate(10);
+        $fashions = $user->timeline()->orderBy('created_at', 'desc')->paginate(12);
         
         $data =[
             'fashions' => $fashions,

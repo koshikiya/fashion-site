@@ -110,7 +110,7 @@ class FashionsController extends Controller
             'tops' => 'required|max:191',
             'bottoms' => 'required|max:191',
             'shoes' => 'required|max:191',
-            'photo'=>'required|image|mimes:jpeg,png,jpg|max:1024',
+            'photo'=>'image|mimes:jpeg,png,jpg|max:1024',
         ]);
         //画像処理
         $fashion =Fashion::find($id);
@@ -169,7 +169,7 @@ class FashionsController extends Controller
    }
     public function category($id){
         $users = User::where('gender',$id)->pluck('id')->toArray();
-        $fashions =Fashion::whereIn('user_id',$users)->get();
+        $fashions =Fashion::whereIn('user_id',$users)->orderBy('created_at', 'desc')->paginate(12);
         return view('fashions.category',['fashions' => $fashions]);
     }
     

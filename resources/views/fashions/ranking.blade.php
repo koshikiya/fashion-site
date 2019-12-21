@@ -19,5 +19,6 @@
     @else
         <p>投稿はありません</p>
     @endif
+    {{ $fashions->links('pagination::bootstrap-4') }}
 
 @endsection

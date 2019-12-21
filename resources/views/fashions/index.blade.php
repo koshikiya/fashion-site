@@ -22,8 +22,10 @@
                 </dl>
         @endforeach
     </div>
+   {{ $fashions->links('pagination::bootstrap-4') }}
     @else
         <p>投稿はありません</p>
     @endif
+    
 
 @endsection

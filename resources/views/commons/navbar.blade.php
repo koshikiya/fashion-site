@@ -2,7 +2,15 @@
     
     <nav class="navbar navbar-expand-sm navbar-dark" style="background-color:black;"> 
         <a class="navbar-brand" href="/">Fashion-site</a>
-         
+    <table class="search">
+    <tr>   
+        {!! Form::open(['route' => ['fashion.keyword'],'method' => 'get']) !!}
+        <td>{!! Form::text('keyword',null,['placeholder' => 'テキスト入力欄','class' => 'form-control']) !!}</td>
+        <td>{!! Form::submit('検索',['class' => 'btn1 btn-sm']) !!}</td>
+        {!! Form::close() !!}
+    </tr>
+    </table>  
+        
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar" >
             <span class="navbar-toggler-icon"></span>
         </button>

@@ -11,6 +11,7 @@
                     <div class="user">
                         <a href="{{ action('UsersController@show', $fashion->user->id) }}"><img class="icon" src="{{ $fashion->user->user_photo }}",width="40" height="49"></a>
                         <p>{{ $fashion->user->name }}</p>
+                        <p class='favorite'><i class="fas fa-heart"></i>{{ count($fashion->favorited) }}</p>
                     </div>
                     
                 </dl>
@@ -19,4 +20,5 @@
     @else
         <p>投稿はありません</p>
     @endif
+    {{ $fashions->links('pagination::bootstrap-4') }}
 @endsection

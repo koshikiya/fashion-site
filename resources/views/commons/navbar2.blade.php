@@ -5,10 +5,11 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         
-        <nav class="nav navbar-nav justify-content-around">
-              {!! link_to_route('fashion.category','WOMEN',['id' => 'WOMEN'],['class' => 'nav-link active']) !!}
-              {!! link_to_route('fashion.category','MEN',['id' => 'MEN'],['class' => 'nav-link active']) !!}
-              {!! link_to_route('fashion.category','KIDS',['id' => 'KIDS'],['class' => 'nav-link active']) !!}
+        <nav class="nav1 navbar-nav justify-content-around">
+            {!! link_to_route('fashion.index','ALL',[],['class' => 'nav-link active']) !!}
+            {!! link_to_route('fashion.category','WOMEN',['id' => 'WOMEN'],['class' => 'nav-link active']) !!}
+            {!! link_to_route('fashion.category','MEN',['id' => 'MEN'],['class' => 'nav-link active']) !!}
+            {!! link_to_route('fashion.category','KIDS',['id' => 'KIDS'],['class' => 'nav-link active']) !!}
         </nav>
     </nav>
     
@@ -18,7 +19,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         
-        <nav class="nav navbar-nav justify-content-center">
+        <nav class="nav1 navbar-nav justify-content-center">
             {!! link_to_route('fashion.ranking','ランキング ',[],['class' => 'btn btn-sm ']) !!}
             @if (Auth::check()) 
                  {!! link_to_route('user.timeline','タイムライン ',[],['class' => 'btn btn-sm midashi-btn']) !!}

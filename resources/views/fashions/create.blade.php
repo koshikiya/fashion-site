@@ -2,8 +2,8 @@
 
 @section('content')
 
-    <div class="table">
-        <dl>
+    <div class="table2">
+      
             {!! Form::model($fashion, ['route' => 'fashions.store','enctype'=>'multipart/form-data']) !!}
                 <tr>
                     <td>
@@ -40,8 +40,7 @@
                 {!! Form::submit('投稿', ['class' => 'btn btn-sm']) !!}
             </div>
             {!! Form::close() !!}
-            
-        </dl>
+      
     </div>
 
 @endsection

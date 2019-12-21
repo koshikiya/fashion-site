@@ -56,6 +56,7 @@
     @else
         <p>お気に入りはありません</p>
     @endif
+    {{ $favorites->links('pagination::bootstrap-4') }}
     </div>
 
 

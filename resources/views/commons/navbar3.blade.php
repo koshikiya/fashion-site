@@ -6,7 +6,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         
-        <nav class="nav navbar-nav justify-content-center">
+        <nav class="nav1 navbar-nav justify-content-center">
             {!! link_to_route('fashion.ranking','ランキング ',[],['class' => 'btn btn-sm ']) !!}
             @if (Auth::check()) 
                  {!! link_to_route('user.timeline','タイムライン ',[],['class' => 'btn btn-sm midashi-btn']) !!}

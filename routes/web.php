@@ -20,6 +20,7 @@ Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 Route::get('ranking','FashionsController@ranking')->name('fashion.ranking');
+Route::get('keyword','SearchController@keyword')->name('fashion.keyword');
 
 Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider')->name('socialite.login');
 Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');

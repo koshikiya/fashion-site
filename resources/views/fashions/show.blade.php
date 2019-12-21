@@ -19,7 +19,7 @@
                 <td>{{ $fashion->bottoms }}</td>
             </tr>
             <tr>
-                <td>靴</td>
+                <td>シューズ</td>
                 <td>{{ $fashion->shoes }}</td>
             </tr>
             <tr>
@@ -60,7 +60,9 @@
                 </td>
                 @endif
             @else
-                {!! link_to_route('login', 'お気に入りする', [], ['class' => 'btn btn-sm midashi-btn']) !!}
+            <td>
+                {!! link_to_route('login', 'お気に入りする', [], ['class' => 'btn btn-sm']) !!}
+            </td>
             @endif    
         
         </table>

@@ -2,7 +2,7 @@
 
 @section('content')
 
-        <div class="table">
+        <div class="table2">
                 {!! Form::model($user, ['route' => ['users.update',$user->id],'enctype'=>'multipart/form-data','method' => 'put']) !!}
                         <tr>
                             <td>
