@@ -2,14 +2,14 @@
 
 @section('content')
 
-    <div class="container">
+    <div class="container ">
         <div class="row">
-            <div class="col-sm">
+            <div class="col-sm-6">
                 <td><img src="{{ $fashion->photo }}", class="img-fluid"></td>
             </div>
     
-        <div class="col-sm">
-        <table class="table table-bordered table1 ">
+        <div class="col-sm-4 offset-1">
+        <table class="table table-bordered">
             <tr>
                 <td>トップス</td>
                 <td>{{ $fashion->tops }}</td>
@@ -37,25 +37,34 @@
                         {!! Form::open(['route' =>['fashions.edit', $fashion->id], 'method' => 'get']) !!}
                             {!! Form::submit('編集',['class' =>'btn btn-default btn-sm']) !!}
                         {!! Form::close() !!}
-                    </td>
-                    <td>
+                    
                         {!! Form::open(['route' =>['fashions.destroy', $fashion->id], 'method' => 'delete']) !!}
                             {!! Form::submit('削除',['class' =>'btn btn-default btn-sm']) !!}
                         {!! Form::close() !!} 
                     </td>
+                    <td>
+                        <button class="btn btn-default btn-sm" type="button" onclick="history.back()">戻る</button>
+                    </td>
+                </tr>
                 @else
                     @if (Auth::user()->favoring($fashion->id))
-                        <td>
-                            {!! Form::open(['route' => ['fashion.unfavorite', $fashion->id], 'method' => 'delete']) !!}
-                                {!! Form::submit('お気に入りを外す', ['class' => "btn btn-default btn-sm"]) !!}
-                            {!! Form::close() !!}
-                        </td>
+                <tr>
+                    <td>
+                        {!! Form::open(['route' => ['fashion.unfavorite', $fashion->id], 'method' => 'delete']) !!}
+                            {!! Form::submit('お気に入りを外す', ['class' => "btn btn-default btn-sm"]) !!}
+                        {!! Form::close() !!}
+                        <button class="btn btn-default btn-sm" type="button" onclick="history.back()">戻る</button>
+                    </td>
+                </tr>
                     @else
+                <tr>
                         <td>
                             {!! Form::open(['route' => ['fashion.favorite', $fashion->id]]) !!}
                                 {!! Form::submit('お気にりする', ['class' => "btn btn-default btn-sm"]) !!}
                             {!! Form::close() !!}
+                            <button class="btn btn-default btn-sm" type="button" onclick="history.back()">戻る</button>
                         </td>
+                </tr>
                     @endif
                 </td>
                 @endif
