@@ -1,7 +1,8 @@
-<header class="mb-4">
+<header class="mb-4 sticky-top">
     
     <nav class="navbar navbar-expand-sm navbar-dark" style="background-color:black;"> 
         <a class="navbar-brand" href="/">-Fashion-site-</a>
+    
     <table class="search">
     <tr>   
         {!! Form::open(['route' => ['fashion.keyword'],'method' => 'get']) !!}

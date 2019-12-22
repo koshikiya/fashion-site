@@ -9,7 +9,7 @@
             </div>
     
         <div class="col-sm">
-        <table class="table  table1 ">
+        <table class="table table-bordered table1 ">
             <tr>
                 <td>トップス</td>
                 <td>{{ $fashion->tops }}</td>
@@ -43,9 +43,6 @@
                             {!! Form::submit('削除',['class' =>'btn btn-default btn-sm']) !!}
                         {!! Form::close() !!} 
                     </td>
-                    <td>
-                        <div class="info"><button class="btn btn-default btn-sm" type="button" onclick="history.back()">戻る</button></div>
-                    </td>
                 @else
                     @if (Auth::user()->favoring($fashion->id))
                         <td>
@@ -60,10 +57,7 @@
                             {!! Form::close() !!}
                         </td>
                     @endif
-                    <td>
-                        <div class="info"><button class="btn btn-default btn-sm" type="button" onclick="history.back()">戻る</button></div>
-                    </td>
-                </tr>
+                </td>
                 @endif
             @else
             <td>
