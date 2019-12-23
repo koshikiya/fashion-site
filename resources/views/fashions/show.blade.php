@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+    @if(Session::has('message'))
+        <div class="alert alert-success top" role="alert">
+            {{ session('message') }}
+        </div>
+    @endif
 
     <div class="container ">
         <div class="row">
@@ -9,7 +14,7 @@
             </div>
     
         <div class="col-sm-4 offset-1">
-        <table class="table table-bordered">
+        <table class="table table-unbordered">
             <tr>
                 <td>トップス</td>
                 <td>{{ $fashion->tops }}</td>
@@ -51,26 +56,32 @@
                 <tr>
                     <td>
                         {!! Form::open(['route' => ['fashion.unfavorite', $fashion->id], 'method' => 'delete']) !!}
-                            {!! Form::submit('お気に入りを外す', ['class' => "btn btn-default btn-sm"]) !!}
+                            {!! Form::submit('♥', ['class' => "btn btn-default btn-sm"]) !!}
                         {!! Form::close() !!}
-                        <button class="btn btn-default btn-sm" type="button" onclick="history.back()">戻る</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-default btn-sm" type="button" onclick="history.back()">戻る</button>   
                     </td>
                 </tr>
                     @else
                 <tr>
-                        <td>
-                            {!! Form::open(['route' => ['fashion.favorite', $fashion->id]]) !!}
-                                {!! Form::submit('お気にりする', ['class' => "btn btn-default btn-sm"]) !!}
-                            {!! Form::close() !!}
-                            <button class="btn btn-default btn-sm" type="button" onclick="history.back()">戻る</button>
-                        </td>
+                    <td>
+                        {!! Form::open(['route' => ['fashion.favorite', $fashion->id]]) !!}
+                            {!! Form::submit('♡︎', ['class' => "btn btn-default btn-sm"]) !!}
+                        {!! Form::close() !!}
+                    </td>
+                    <td>
+                        <button class="btn btn-default btn-sm" type="button" onclick="history.back()">戻る</button>   
+                    </td>
                 </tr>
                     @endif
-                </td>
                 @endif
             @else
             <td>
-                {!! link_to_route('login', 'お気に入りする', [], ['class' => 'btn btn-sm']) !!}
+                {!! link_to_route('login', '♡', [], ['class' => 'btn btn-default btn-sm']) !!}
+            </td>
+             <td>
+                <button class="btn btn-default btn-sm" type="button" onclick="history.back()">戻る</button>   
             </td>
             @endif    
         

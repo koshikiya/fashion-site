@@ -13,7 +13,7 @@ class FavoritesController extends Controller
         $fashion->favorite_count += \Auth::user()->favorite($id);
         $fashion->save();
         
-        return back();
+        return back()->with('message', 'お気に入りしました。');
     }
     public function destroy($id){
         
@@ -21,6 +21,6 @@ class FavoritesController extends Controller
         $fashion->favorite_count -= \Auth::user()->unfavorite($id);
         $fashion->save();
         
-        return back();
+        return back()->with('message', 'お気に入りを外しました。');
     }
 }

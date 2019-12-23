@@ -1,16 +1,14 @@
 <header class="mb-4 sticky-top">
     
     <nav class="navbar navbar-expand-sm navbar-dark" style="background-color:black;"> 
-        <a class="navbar-brand" href="/">-Fashion-site-</a>
+        <a class="navbar-brand" href="/"><div class="logo">-Fashion-site-</div></a>
     
-    <table class="search">
     <tr>   
         {!! Form::open(['route' => ['fashion.keyword'],'method' => 'get']) !!}
-        <td>{!! Form::text('keyword',null,['placeholder' => 'アイテムを探す','class' => 'form-control']) !!}</td>
+        <td>{!! Form::text('keyword',null,['placeholder' => 'アイテムを探す','class' => 'search']) !!}</td>
         <td>{!! Form::submit('検索',['class' => 'btn1 btn-sm']) !!}</td>
         {!! Form::close() !!}
     </tr>
-    </table>  
         
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar" >
             <span class="navbar-toggler-icon"></span>
@@ -29,7 +27,7 @@
                             <li class="dropdown-item">{!! link_to_route('user.timeline','タイムライン') !!}</li>
                             <li class="dropdown-item">{!! link_to_route('users.show','マイページ',['id' => Auth::id()]) !!}</li>
                             <li class="dropdown-divider"></li>
-                            <li class="dropdown-item">{!! link_to_route('logout.get', 'Logout') !!}</li>
+                            <li class="dropdown-item">{!! link_to_route('logout.get', 'ログアウト') !!}</li>
                         </ul>
                     </li>
                 @else

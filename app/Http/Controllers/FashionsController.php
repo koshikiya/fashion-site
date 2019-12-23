@@ -133,7 +133,7 @@ class FashionsController extends Controller
             'photo' => $request->photo,
             'photo_name' => $fashion->photo_name]);
         
-         return redirect('/')->with('message', '更新が完了しました。');; 
+         return redirect('/')->with('message', '更新が完了しました。');
     }
 
     /**

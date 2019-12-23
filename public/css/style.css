@@ -157,5 +157,18 @@ footer{
   justify-content: center;
   }
 .search{
- margin-top: auto;
+ border-radius: 5px;
+ border: solid 1px;
+
+}
+
+h3{
+  padding-top: 20px;
+}
+.logo{
+  margin-left: 8px;
+  margin-right: 12px;
+}
+.top{
+  margin-top: 30px;
 }
