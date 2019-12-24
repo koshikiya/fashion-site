@@ -58,8 +58,9 @@ class Handler extends ExceptionHandler
                 return response()->view('errors.404');
             }
         }
-        if ($exception instanceof ErrorException) {
-           return response()->view('errors.500');
+        if (!$this->isHttpException($e)) {
+        abort(500);
+        
         }
 
         return parent::render($request, $e);
