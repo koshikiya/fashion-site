@@ -24,10 +24,10 @@ class UsersController extends Controller
     public function edit($id){
         
         $user = User::find($id);
-        if(\Auth::id() == $user->id){
-        return view('users.edit',['user' => $user]);
+        if(\Auth::id() !== $user->id){
+            abort(403);
         }
-        return redirect('/');
+        return view('users.edit',['user' => $user]);
     }
     
     public function update(Request $request, $id){
@@ -73,6 +73,9 @@ class UsersController extends Controller
     
     public function followings($id){
         $user = User::find($id);
+         if(is_null($user)) {
+            abort(404);
+        }
         $followings = $user->followings;
         
         $data =[
@@ -84,6 +87,9 @@ class UsersController extends Controller
     }
     public function followers($id){
         $user = User::find($id);
+        if(is_null($user)) {
+            abort(404);
+        }
         $followers = $user->followers;
         $data =[
             'user' => $user,
@@ -94,6 +100,9 @@ class UsersController extends Controller
     }
     public function favorites($id){
         $user = User::find($id);
+        if(is_null($user)) {
+            abort(404);
+        }
         $favorites = $user->favorites()->orderBy('created_at', 'desc')->paginate(12);
        
         $data =[

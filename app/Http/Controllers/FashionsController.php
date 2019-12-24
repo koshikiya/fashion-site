@@ -73,12 +73,17 @@ class FashionsController extends Controller
     public function show($id)
     {
         $fashion = Fashion::find($id);
+        
+        if(is_null($fashion)) {
+            abort(404);
+        }
         $user = $fashion->user;
         $data =[
                 'fashion'=> $fashion,
                 'user'=> $user,
                 ];
         return view('fashions.show',$data);
+    
     }
 
     /**
@@ -90,11 +95,10 @@ class FashionsController extends Controller
     public function edit($id)
     {
         $fashion = Fashion::find($id);
-        if(\Auth::id() === $fashion->user_id){
-        
-        return view('fashions.edit',['fashion' => $fashion]);
+        if(\Auth::id() !== $fashion->user_id){
+            abort(403);
         }
-        return redirect('/');
+        return view('fashions.edit',['fashion' => $fashion]);
     }
 
     /**

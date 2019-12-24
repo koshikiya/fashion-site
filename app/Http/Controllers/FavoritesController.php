@@ -10,6 +10,7 @@ class FavoritesController extends Controller
     public function store(Request $request, $id){
         
         $fashion = Fashion::find($id); 
+        
         $fashion->favorite_count += \Auth::user()->favorite($id);
         $fashion->save();
         
@@ -18,6 +19,7 @@ class FavoritesController extends Controller
     public function destroy($id){
         
         $fashion = Fashion::find($id);
+        
         $fashion->favorite_count -= \Auth::user()->unfavorite($id);
         $fashion->save();
         
