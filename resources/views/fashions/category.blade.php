@@ -2,9 +2,9 @@
 
 @section('content')
     @include('commons.navbar2')
-    @if (count($fashions) > 0)
     <div class="box">
-        @foreach ($fashions as $fashion)
+        @if (count($fashions) > 0)
+            @foreach ($fashions as $fashion)
                 <dl>
                     <dd><a href="{{ action('FashionsController@show', $fashion->id) }}"><img src="{{$fashion->photo}}" width="230" height="330"></a></dd>
                     <div class="user">
@@ -13,10 +13,11 @@
                         <p class='favorite'><i class="fas fa-heart"></i>{{ count($fashion->favorited) }}</p>
                     </div>
                 </dl>
-        @endforeach
+            @endforeach
+        @else
+            <p>投稿はありません。</p>
+        @endif   
     </div>
-    @else
-        <p>投稿はありません。</p>
-    @endif
+   
     {{ $fashions->links('pagination::bootstrap-4') }}
 @endsection

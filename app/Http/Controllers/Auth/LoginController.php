@@ -51,7 +51,7 @@ class LoginController extends Controller
       $user = Socialite::with($provider)->user();
   
     }catch (\Exception $e) {
-      return redirect('login'); // エラーならログイントップへ転送
+      return view('errors.404'); 
     }
   
     $authUser = User::where('provider_id',$user->id)->first();
