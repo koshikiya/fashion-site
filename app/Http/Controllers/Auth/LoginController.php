@@ -64,7 +64,6 @@ class LoginController extends Controller
                   'name' => $user->nickname,
                   'email' => $user->email,
                   'provider' => $provider,
-                  'provider_id' => $user->id
                 ]);
       return view('auth.complete',['authUser' => $authUser]);  
   

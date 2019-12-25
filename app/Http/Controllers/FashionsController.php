@@ -49,10 +49,10 @@ class FashionsController extends Controller
         $fashion = new Fashion;
         $file = $request->file('photo');
         $name = $request->file('photo')->getClientOriginalName();
-        $path =\Storage::disk('s3')->putFileas('/', $file,$name,'public');
-        $request->photo = \Storage::disk('s3')->url($path);
+        \Storage::disk('s3')->putFileas('/', $file,$name,'public');
+        $request->photo = \Storage::disk('s3')->url($name);
         $fashion->photo_name =$name;
-            
+          
         $request->user()->fashions()->create([
             'tops' => $request->tops,
             'bottoms' => $request->bottoms,
@@ -123,8 +123,8 @@ class FashionsController extends Controller
             $disk->delete($fashion->photo_name);
             $file = $request->file('photo');
             $name = $request->file('photo')->getClientOriginalName();
-            $path =\Storage::disk('s3')->putFileas('/', $file,$name,'public');
-            $request->photo = \Storage::disk('s3')->url($path);
+            \Storage::disk('s3')->putFileas('/', $file,$name,'public');
+            $request->photo = \Storage::disk('s3')->url($name);
             $fashion->photo_name = $name;
         }else{
             $request->photo = $fashion->photo;
@@ -156,20 +156,14 @@ class FashionsController extends Controller
         $fashion->delete();
         return redirect('/')->with('message', '削除が完了しました。');
         }
-        return redirect('/');
+        return view('errors.403');
     }
     
    public function ranking(){
-       
-       //$ranks = \DB::table('fashions')->select(\DB::raw('RANK() OVER(ORDER BY favorite_count DESC) AS rank'))->get();
-       
+      
         $fashions = Fashion::orderBy('favorite_count', 'desc')->paginate(12);
-        
-        $data =[
-           'fashions' => $fashions,
-           
-           ];
-       return view('fashions.ranking',$data);
+         
+       return view('fashions.ranking',['fashions' => $fashions]);
    }
    
     

@@ -33,6 +33,7 @@ class UsersController extends Controller
     public function update(Request $request, $id){
         $this->validate($request, [
             'user_photo' => 'image|mimes:jpeg,png,jpg|max:1024',
+            'name' => 'required|max:191',
         ]);
         //画像処理
         $user =User::find($id);
@@ -41,8 +42,8 @@ class UsersController extends Controller
             $disk->delete($user->user_photo_name);
             $file = $request->file('user_photo');
             $name = $request->file('user_photo')->getClientOriginalName();
-            $path =\Storage::disk('s3')->putFileas('/', $file,$name,'public');
-            $request->user_photo = \Storage::disk('s3')->url($path);
+            \Storage::disk('s3')->putFileas('/', $file,$name,'public');
+            $request->user_photo = \Storage::disk('s3')->url($name);
             $user->user_photo_name = $name;
         }else{
             $request->user_photo = $user->user_photo;

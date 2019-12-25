@@ -15,7 +15,7 @@
         <p class='name'>{{ $user->name }}</p></br>
         <p class="info">{{ $user->gender }}
         @if($user->height == !null)
-            <span class="mgr-10">{{ $user->height.'cm' }}</span></p>
+            <span class="mgr-5">{{ $user->height.'cm' }}</span></p>
         @endif
     </div>
     @if (Auth::check()) 

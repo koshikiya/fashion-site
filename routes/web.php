@@ -42,12 +42,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('timeline','UsersController@timeline')->name('user.timeline');
   
     Route::group(['prefix' => 'user/{id}'], function(){
-        Route::post('follow','FollowsController@store')->name('user.follow');
-        Route::delete('unfollow','FollowsController@destroy')->name('user.unfollow');
+        Route::post('follow','FollowController@store')->name('user.follow');
+        Route::delete('unfollow','FollowController@destroy')->name('user.unfollow');
     });
     
      Route::group(['prefix' => 'fashion/{id}'], function () {
-        Route::post('favorite','FavoritesController@store')->name('fashion.favorite');
-        Route::delete('unfavorite','FavoritesController@destroy')->name('fashion.unfavorite');
+        Route::post('favorite','FavoriteController@store')->name('fashion.favorite');
+        Route::delete('unfavorite','FavoriteController@destroy')->name('fashion.unfavorite');
     });
 });

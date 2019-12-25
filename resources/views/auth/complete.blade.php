@@ -7,11 +7,6 @@
 
     <div class="col-sm">
         <table class="table table-bordered table1 ">
-
-            <tr>
-                <td>ID</td>
-                <td>{{ $authUser->id }}</td>
-            </tr>
             <tr>
                 <td>ユーザー名</td>
                 <td>{{ $authUser->name }}</td>

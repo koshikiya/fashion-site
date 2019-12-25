@@ -79,9 +79,8 @@ class User extends Authenticatable
         $exist = $this->following($userId);
         $me = $this->id == $userId;
         
-        if(!$exist || !$me){
+        if(!$exist && !$me){
             $this->followings()->attach($userId);
-            return true; 
         }
     }
     
@@ -91,7 +90,6 @@ class User extends Authenticatable
         
         if($exist && !$me){
             $this->followings()->detach($userId);
-            return true;
         }
     }
     
@@ -99,6 +97,7 @@ class User extends Authenticatable
         
         $following_user_ids = $this->followings()->pluck('users.id')->toArray();
         $following_user_ids[] = $this->id;
+        
         return Fashion::whereIn('user_id',$following_user_ids);
     }
     
