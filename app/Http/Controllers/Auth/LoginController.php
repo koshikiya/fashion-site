@@ -54,7 +54,7 @@ class LoginController extends Controller
       return view('errors.404'); 
     }
   
-    $authUser = User::where('provider_id',$user->id)->first();
+    $authUser = User::where('email',$user->email)->first();
     //DBにデータがあればログインなければ登録
     if($authUser){
       Auth::login($authUser,true); 
