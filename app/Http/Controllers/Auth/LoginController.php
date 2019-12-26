@@ -56,7 +56,7 @@ class LoginController extends Controller
   
     $authUser = User::where('email',$user->email)->first();
     //DBにデータがあればログインなければ登録
-    if($authUser){
+    if($authUser > 0){
       Auth::login($authUser); 
       return redirect('/')->with('message', 'ログイン成功しました');;
     }else{
