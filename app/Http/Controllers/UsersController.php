@@ -16,9 +16,7 @@ class UsersController extends Controller
             'user' => $user,
             'myfashions' => $myfashions
             ];
-
         return view('users.show',$data);
-            
     }
  
     public function edit($id){
@@ -56,7 +54,7 @@ class UsersController extends Controller
             'user_photo_name' => $user->user_photo_name
         ]);
         
-         return redirect(route('users.show', ['id' => $user->id]))->with('message', '更新が完了しました。'); 
+        return redirect(route('users.show', ['id' => $user->id]))->with('message', '更新が完了しました。'); 
     }    
     
     
@@ -83,7 +81,6 @@ class UsersController extends Controller
             'user' => $user,
             'followings' => $followings
             ];
-        
         return view('users.followings',$data);
     }
     public function followers($id){
@@ -96,7 +93,6 @@ class UsersController extends Controller
             'user' => $user,
             'followers' => $followers
             ];
-        
         return view('users.followers',$data);
     }
     public function favorites($id){
@@ -110,7 +106,6 @@ class UsersController extends Controller
             'user' => $user,
             'favorites' => $favorites
             ];
-        
         return view('users.favorites',$data);
     }
 }

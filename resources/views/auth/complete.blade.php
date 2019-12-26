@@ -16,6 +16,6 @@
                 <td>{{ $authUser->email }}</td>
             </tr>
         </table>
-            <p class="mt-2">ログインは{!! link_to_route('login', 'こちら') !!}</p>
+        <p class="mt-2">ログインは{!! link_to_route('login', 'こちら') !!}</p>
     </div>
 @endsection

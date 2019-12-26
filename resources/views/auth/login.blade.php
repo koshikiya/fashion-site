@@ -7,7 +7,6 @@
 
     <div class="row">
         <div class="col-sm-6 offset-sm-3">
-
             {!! Form::open(['route' => 'login.post']) !!}
                 <div class="form-group">
                     {!! Form::label('email', 'メールアドレス') !!}

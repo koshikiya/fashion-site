@@ -100,5 +100,4 @@ class User extends Authenticatable
         
         return Fashion::whereIn('user_id',$following_user_ids);
     }
-    
 }

@@ -49,23 +49,21 @@
             <li class="nav-item">{!! link_to_route('user.favorites','お気に入り'.count($user->favorites),['id' => $user->id],['class'=> "nav-link "]) !!}</li>
         </ul>
     
-     @if (count($myfashions) > 0)
-    <div class="box">
-        @foreach ($myfashions as $myfashion)
-                <dl>
-                    <dd><a href="{{ action('FashionsController@show', $myfashion->id) }}"><img src="{{$myfashion->photo}}" width="230" height="300"></a></dd>
-                    <div class="user">
-                        <img class="icon" src="{{ $myfashion->user->user_photo }}">
-                        <p>{{ $myfashion->user->name }}</p>
-                        <p class='favorite'><i class="fas fa-heart"></i>{{ count($myfashion->favorited) }}</p>
-                    </div>
-                </dl>
-        @endforeach
+        @if (count($myfashions) > 0)
+            <div class="box">
+                @foreach ($myfashions as $myfashion)
+                    <dl>
+                        <dd><a href="{{ action('FashionsController@show', $myfashion->id) }}"><img src="{{$myfashion->photo}}" width="230" height="300"></a></dd>
+                        <div class="user">
+                            <img class="icon" src="{{ $myfashion->user->user_photo }}">
+                            <p>{{ $myfashion->user->name }}</p>
+                            <p class='favorite'><i class="fas fa-heart"></i>{{ count($myfashion->favorited) }}</p>
+                        </div>
+                    </dl>
+                @endforeach
+            </div>
+        @else
+            <p>投稿はありません</p>
+        @endif
     </div>
-    @else
-        <p>投稿はありません</p>
-    @endif
-    </div>
-
-
 @endsection

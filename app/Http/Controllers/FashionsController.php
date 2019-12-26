@@ -61,7 +61,7 @@ class FashionsController extends Controller
             'photo' => $request->photo,
             'photo_name' => $fashion->photo_name]);
             
-            return redirect('/')->with('message', '投稿が完了しました。');
+        return redirect('/')->with('message', '投稿が完了しました。');
     }
 
     /**
@@ -137,7 +137,7 @@ class FashionsController extends Controller
             'photo' => $request->photo,
             'photo_name' => $fashion->photo_name]);
         
-         return redirect('/')->with('message', '更新が完了しました。');
+        return redirect('/')->with('message', '更新が完了しました。');
     }
 
     /**
@@ -163,8 +163,6 @@ class FashionsController extends Controller
       
         $fashions = Fashion::orderBy('favorite_count', 'desc')->paginate(12);
          
-       return view('fashions.ranking',['fashions' => $fashions]);
+        return view('fashions.ranking',['fashions' => $fashions]);
    }
-   
-    
 }

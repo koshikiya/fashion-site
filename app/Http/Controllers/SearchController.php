@@ -10,7 +10,7 @@ class SearchController extends Controller
 {
     public function keyword(Request $request){
         
-        $keyword = $request->input('keyword');
+        $keyword = $request->keyword;
         
         if(!empty($keyword)){
             $fashions = Fashion::where('tops', 'like', '%'.$keyword.'%')

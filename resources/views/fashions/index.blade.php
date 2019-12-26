@@ -10,8 +10,8 @@
     @endif
     
     @if (count($fashions) > 0)
-    <div class="box">
-        @foreach ($fashions as $fashion)
+        <div class="box">
+            @foreach ($fashions as $fashion)
                 <dl>
                     <dd><a href="{{ action('FashionsController@show', $fashion->id) }}"><img src="{{$fashion->photo}}" width="230" height="330"></a></dd>
                     <div class="user">
@@ -20,12 +20,10 @@
                         <p class='favorite'><i class="fas fa-heart"></i>{{ count($fashion->favorited) }}</p>
                     </div>
                 </dl>
-        @endforeach
-    </div>
-   {{ $fashions->links('pagination::bootstrap-4') }}
+            @endforeach
+        </div>
+       {{ $fashions->links('pagination::bootstrap-4') }}
     @else
         <p>投稿はありません</p>
     @endif
-    
-
 @endsection
