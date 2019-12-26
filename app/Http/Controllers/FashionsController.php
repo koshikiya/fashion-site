@@ -38,7 +38,7 @@ class FashionsController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
+        $request->validate([
             'tops' => 'required|max:191',
             'bottoms' => 'required|max:191',
             'shoes' => 'required|max:191',
@@ -110,7 +110,7 @@ class FashionsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
+        $request->validate([
             'tops' => 'required|max:191',
             'bottoms' => 'required|max:191',
             'shoes' => 'required|max:191',

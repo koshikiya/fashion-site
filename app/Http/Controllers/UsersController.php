@@ -28,7 +28,7 @@ class UsersController extends Controller
     }
     
     public function update(Request $request, $id){
-        $this->validate($request, [
+        $request->validate([
             'user_photo' => 'image|mimes:jpeg,png,jpg|max:1024',
             'name' => 'required|max:191',
         ]);
