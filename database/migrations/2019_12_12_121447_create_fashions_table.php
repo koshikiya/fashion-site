@@ -15,7 +15,7 @@ class CreateFashionsTable extends Migration
     {
         Schema::create('fashions', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned()->index();
+            $table->integer('user_id')->unsigned();
             $table->string('photo');
             $table->string('photo_name');
             $table->string('tops');

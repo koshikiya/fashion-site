@@ -53,7 +53,7 @@ class FashionsController extends Controller
         $request->photo = \Storage::disk('s3')->url($name);
         $fashion->photo_name =$name;
           
-        $request->user()->fashions()->create([
+        \Auth::user()->fashions()->create([
             'tops' => $request->tops,
             'bottoms' => $request->bottoms,
             'shoes' => $request->shoes,

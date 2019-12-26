@@ -10,8 +10,7 @@ class UsersController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        $myfashions = $user->fashions;
-        
+        $myfashions = $user->fashions()->orderBy('created_at', 'desc')->paginate(12);
         $data =[
             'user' => $user,
             'myfashions' => $myfashions
