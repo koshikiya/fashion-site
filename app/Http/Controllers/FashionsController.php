@@ -75,7 +75,7 @@ class FashionsController extends Controller
         $fashion = Fashion::find($id);
         
         if(is_null($fashion)) {
-            abort(404);
+            return view('errors.404');
         }
         $user = $fashion->user;
         $data =[
@@ -96,7 +96,7 @@ class FashionsController extends Controller
     {
         $fashion = Fashion::find($id);
         if(\Auth::id() !== $fashion->user_id){
-            abort(403);
+            return view('errors.403');
         }
         return view('fashions.edit',['fashion' => $fashion]);
     }

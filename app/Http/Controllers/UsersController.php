@@ -22,7 +22,7 @@ class UsersController extends Controller
         
         $user = User::find($id);
         if(\Auth::id() !== $user->id){
-            abort(403);
+            return view('errors.403');
         }
         return view('users.edit',['user' => $user]);
     }
@@ -61,18 +61,14 @@ class UsersController extends Controller
         $user = \Auth::user();
         $fashions = $user->timeline()->orderBy('created_at', 'desc')->paginate(12);
         
-        $data =[
-            'fashions' => $fashions,
-            'user' => $user];
-        
-        return view('users.timeline',$data);
+        return view('users.timeline',['fashions' => $fashions]);
     }
     
     
     public function followings($id){
         $user = User::find($id);
          if(is_null($user)) {
-            abort(404);
+            return view('errors.404');
         }
         $followings = $user->followings;
         
@@ -85,7 +81,7 @@ class UsersController extends Controller
     public function followers($id){
         $user = User::find($id);
         if(is_null($user)) {
-            abort(404);
+            return view('errors.404');
         }
         $followers = $user->followers;
         $data =[
@@ -97,7 +93,7 @@ class UsersController extends Controller
     public function favorites($id){
         $user = User::find($id);
         if(is_null($user)) {
-            abort(404);
+            return view('errors.404');
         }
         $favorites = $user->favorites()->orderBy('created_at', 'desc')->paginate(12);
        
