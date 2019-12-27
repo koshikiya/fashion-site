@@ -67,4 +67,5 @@
             <p>投稿はありません</p>
         @endif
     </div>
+    
 @endsection
