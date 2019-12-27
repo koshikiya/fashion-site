@@ -8,39 +8,39 @@
     </div>
 @endif
 <div class="all"> 
-<div class="box6">
-    <img class="icon2" src="{{ $user->user_photo }}" >
-    @if (Auth::check()) 
-        @if( Auth::id() == $user->id)
-            {!! Form::open(['route' =>['users.edit',$user->id], 'method' => 'get']) !!}
-                {!! Form::submit('プロフィール変更',['class' => "btn btn-default btn-md"]) !!}
-            {!! Form::close() !!}
-        @else
-            @if (Auth::id() != $user->id)
-                @if (Auth::user()->following($user->id))
-                    {!! Form::open(['route' => ['user.unfollow', $user->id], 'method' => 'delete']) !!}
-                        {!! Form::submit('フォロー外す', ['class' => "btn btn-default btn-md"]) !!}
-                    {!! Form::close() !!}
-                @else
-                    {!! Form::open(['route' => ['user.follow', $user->id]]) !!}
-                        {!! Form::submit('フォローする', ['class' => 'btn btn-default btn-md']) !!}
-                    {!! Form::close() !!}
+    <div class="box6">
+        <img class="icon2" src="{{ $user->user_photo }}" >
+        @if (Auth::check()) 
+            @if( Auth::id() == $user->id)
+                {!! Form::open(['route' =>['users.edit',$user->id], 'method' => 'get']) !!}
+                    {!! Form::submit('プロフィール変更',['class' => "btn btn-default btn-md"]) !!}
+                {!! Form::close() !!}
+            @else
+                @if (Auth::id() != $user->id)
+                    @if (Auth::user()->following($user->id))
+                        {!! Form::open(['route' => ['user.unfollow', $user->id], 'method' => 'delete']) !!}
+                            {!! Form::submit('フォロー外す', ['class' => "btn btn-default btn-md"]) !!}
+                        {!! Form::close() !!}
+                    @else
+                        {!! Form::open(['route' => ['user.follow', $user->id]]) !!}
+                            {!! Form::submit('フォローする', ['class' => 'btn btn-default btn-md']) !!}
+                        {!! Form::close() !!}
+                    @endif
                 @endif
             @endif
+        @else
+            {!! Form::open(['route' => 'login', 'method' => 'get']) !!}
+                {!! Form::submit('フォローする', ['class' => "btn btn-default btn-md"]) !!}
+            {!! Form::close() !!}
         @endif
-    @else
-        {!! Form::open(['route' => 'login', 'method' => 'get']) !!}
-            {!! Form::submit('フォローする', ['class' => "btn btn-default btn-md"]) !!}
-        {!! Form::close() !!}
-    @endif
-    </div>
-    <div class="box2">
-        <p class='name'>{{ $user->name }}</p></br>
-        <p class="info">{{ $user->gender }}
-        @if($user->height == !null)
-            <span class="mgr-5">{{ $user->height.'cm' }}</span></p>
-        @endif
-    </div>
+        </div>
+        <div class="box2">
+            <p class='name'>{{ $user->name }}</p></br>
+            <p class="info">{{ $user->gender }}
+            @if($user->height == !null)
+                <span class="mgr-5">{{ $user->height.'cm' }}</span></p>
+            @endif
+        </div>
     </div>
     <div class='nav1'>
         <ul class="nav nav-tabs nav-justified ">
@@ -57,7 +57,7 @@
                         <dd><a href="{{ action('FashionsController@show', $myfashion->id) }}"><img src="{{$myfashion->photo}}" width="230" height="300"></a></dd>
                         <div class="user">
                             <img class="icon" src="{{ $myfashion->user->user_photo }}">
-                            <p>{{ $myfashion->user->name }}</p>
+                            <p class="favorite">{{ $myfashion->user->name }}</p>
                             <p class='favorite'><i class="fas fa-heart"></i>{{ count($myfashion->favorited) }}</p>
                         </div>
                     </dl>

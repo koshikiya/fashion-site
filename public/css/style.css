@@ -42,7 +42,6 @@ img{
 }
 p{
   display: inline-block;
-  padding-left: 15px;
   
 }
 
@@ -71,9 +70,7 @@ table{
   
 }
 .box2{
-  width: 45%;
   margin-top: 20px;
-  float: right;
 }
 .info{
   
@@ -174,11 +171,14 @@ h3{
   margin-top: 30px;
 }
 .box6{
-  width: 60%;
-  float: left;
-  text-align: center;
+ 
+  
 }
 .all{
-  height: 240px;
   display: flex;
+}
+
+.favorite{
+  display: inline-block;
+  padding-left: 15px;
 }
