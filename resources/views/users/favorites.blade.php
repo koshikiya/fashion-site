@@ -52,7 +52,7 @@
                         <dd><a href="{{ action('FashionsController@show', $favorite->id) }}"><img src="{{$favorite->photo}}" width="230" height="300"></a></dd>
                         <div class="user">
                             <a href="{{ action('UsersController@show', $favorite->id) }}"><img class="icon" src="{{ $favorite->user->user_photo }}"></a>
-                            <p>{{ $favorite->user->name }}</p> 
+                            <p class="favorite">{{ $favorite->user->name }}</p> 
                             <p class='favorite'><i class="fas fa-heart"></i>{{ count($favorite->favorited) }}</p>
                         </div>
                     </dl>
