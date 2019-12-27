@@ -7,17 +7,9 @@
         {{ session('message') }}
     </div>
 @endif
-    
-    @if($user->user_photo !=null)
-        <img class="icon2" src="{{ $user->user_photo }}">
-    @endif
-    <div class="box2">
-        <p class='name'>{{ $user->name }}</p></br>
-        <p class="info">{{ $user->gender }}
-        @if($user->height == !null)
-            <span class="mgr-5">{{ $user->height.'cm' }}</span></p>
-        @endif
-    </div>
+<div class="all"> 
+<div class="box6">
+    <img class="icon2" src="{{ $user->user_photo }}" >
     @if (Auth::check()) 
         @if( Auth::id() == $user->id)
             {!! Form::open(['route' =>['users.edit',$user->id], 'method' => 'get']) !!}
@@ -41,6 +33,15 @@
             {!! Form::submit('フォローする', ['class' => "btn btn-default btn-md"]) !!}
         {!! Form::close() !!}
     @endif
+    </div>
+    <div class="box2">
+        <p class='name'>{{ $user->name }}</p></br>
+        <p class="info">{{ $user->gender }}
+        @if($user->height == !null)
+            <span class="mgr-5">{{ $user->height.'cm' }}</span></p>
+        @endif
+    </div>
+    </div>
     <div class='nav1'>
         <ul class="nav nav-tabs nav-justified ">
             <li class="nav-item">{!! link_to_route('users.show','投稿'.count($user->fashions),['id' => $user->id],['class'=> "nav-link active" ]) !!}</li>

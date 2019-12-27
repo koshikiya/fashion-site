@@ -52,12 +52,13 @@ table{
 
 .nav1{
   margin-top: 60px;
+  clear: both;
 }
 
 .icon2{
   border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
-  width:  200px;       /* ※縦横を同値に */
-  height: 200px;
+  width:  180px;       /* ※縦横を同値に */
+  height: 180px;
 }
 .btn{
   border: solid 1px;
@@ -65,14 +66,14 @@ table{
   
 }
 .name{
-  font-size: 45px;
+  font-size: 35px;
   margin-left: 30px;
   
 }
 .box2{
-  display: inline-block;
-  margin-left: -30px;
-  margin-top: 60px;
+  width: 45%;
+  margin-top: 20px;
+  float: right;
 }
 .info{
   
@@ -124,7 +125,7 @@ footer{
   background-color: white;
 }
 .container{
-  margin-top: 50px;
+  margin-top: 90px;
   margin-bottom: 30px;
 }
 
@@ -171,4 +172,13 @@ h3{
 }
 .top{
   margin-top: 30px;
+}
+.box6{
+  width: 60%;
+  float: left;
+  text-align: center;
+}
+.all{
+  height: 240px;
+  display: flex;
 }
