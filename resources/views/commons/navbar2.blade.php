@@ -5,10 +5,10 @@
     </button>
         
         <nav class="nav1 navbar-nav justify-content-around">
-            {!! link_to_route('fashion.index','ALL',[],['class' => 'nav-link']) !!}
-            {!! link_to_route('fashion.category','WOMEN',['id' => 'WOMEN'],['class' => 'nav-link']) !!}
-            {!! link_to_route('fashion.category','MEN',['id' => 'MEN'],['class' => 'nav-link']) !!}
-            {!! link_to_route('fashion.category','KIDS',['id' => 'KIDS'],['class' => 'nav-link']) !!}
+            {!! link_to_route('fashion.index','ALL',[],['class' => 'nav-link active']) !!}
+            {!! link_to_route('fashion.category','WOMEN',['id' => 'WOMEN'],['class' => 'nav-link active']) !!}
+            {!! link_to_route('fashion.category','MEN',['id' => 'MEN'],['class' => 'nav-link active']) !!}
+            {!! link_to_route('fashion.category','KIDS',['id' => 'KIDS'],['class' => 'nav-link active']) !!}
         </nav>
 </nav>
     
