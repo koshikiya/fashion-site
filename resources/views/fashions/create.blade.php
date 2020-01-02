@@ -30,8 +30,11 @@
             </tr>
             <tr>
                 <td>
-                    {!! Form::label('photo', '画像') !!}
-                    {!! Form::file('photo', null, ['class' => 'form-control']) !!}
+                    <div class="file">
+                        {!! Form::label('file-test','画像アップロード',['id' =>'file-test-label']) !!}
+                        {!! Form::file('photo',['id' =>'file-test']) !!}
+                        {!! Form::text('file-test','null',['id' =>'file-test-name','disabled' => '']) !!}
+                    </div>
                 </td>
             </tr>
                 
