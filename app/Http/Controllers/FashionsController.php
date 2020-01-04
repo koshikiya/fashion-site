@@ -151,10 +151,10 @@ class FashionsController extends Controller
         $fashion = Fashion::find($id);
         if(\Auth::id() === $fashion->user_id){
             
-        $disk =\Storage::disk('s3');
-        $disk->delete($fashion->photo_name);
-        $fashion->delete();
-        return redirect('/')->with('message', '削除が完了しました。');
+            $disk =\Storage::disk('s3');
+            $disk->delete($fashion->photo_name);
+            $fashion->delete();
+            return redirect('/')->with('message', '削除が完了しました。');
         }
         return view('errors.403');
     }

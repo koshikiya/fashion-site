@@ -24,7 +24,7 @@
             <div class="info2">
                 {!! link_to_route('socialite.login','githubでログイン',['id' =>'github'],['class' => 'btn btn-md']) !!}
             </div>
-            <p class="mt-2">会員登録をしてない方は{!! link_to_route('signup.get', 'こちら') !!}</p>
+            <p class="mt-2">会員登録をしてない方は{!! link_to_route('signup.get', 'こちら。') !!}</p>
         </div>
     </div>
 @endsection
