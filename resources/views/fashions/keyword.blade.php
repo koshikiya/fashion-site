@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
     @include('commons.navbar3')
     
     <div class="box">

@@ -76,7 +76,7 @@
                 @endforeach
             </div>
         @else
-            <p>フォローしていません</p>
+            <p>フォローしていません。</p>
         @endif
     </div>
 @endsection
