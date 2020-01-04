@@ -37,7 +37,6 @@
                     </div>
                 </td>
             </tr>
-                
             <div style="text-align: center;">
                 {!! Form::submit('投稿', ['class' => 'btn btn-sm']) !!}
             </div>
